@@ -1,0 +1,5 @@
+{
+	"name": {{new_tagname.inputText}},
+	"start_week": {{parseInt(new_startWeek.text)}},
+	"end_week": {{parseInt(new_endWeek.text)}}
+}

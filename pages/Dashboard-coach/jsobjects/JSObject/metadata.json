@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject",
+    "pageId": "Dashboard-coach",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Dashboard-coach_JSObject",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_64bedb19f155843385ac6be3"
+}

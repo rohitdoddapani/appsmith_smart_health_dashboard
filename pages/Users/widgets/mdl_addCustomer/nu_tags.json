@@ -1,0 +1,74 @@
+{
+    "boxShadow": "none",
+    "iconSVG": "https://appcdn.appsmith.com/static/media/icon.16c864f46228416bf937ce5e688bf1eb.svg",
+    "labelText": "Tags",
+    "topRow": 34,
+    "labelWidth": 5,
+    "type": "MULTI_SELECT_WIDGET_V2",
+    "serverSideFiltering": false,
+    "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( `[\n  \"GREEN\",\n  \"RED\"\n]`))(nu_tags.options, nu_tags.serverSideFiltering) }}",
+    "animateLoading": true,
+    "leftColumn": 1,
+    "dynamicBindingPathList": [
+        {"key": "accentColor"},
+        {"key": "borderRadius"},
+        {"key": "defaultOptionValue"}
+    ],
+    "labelStyle": "BOLD",
+    "placeholderText": "Select option(s)",
+    "isDisabled": false,
+    "isRequired": false,
+    "dynamicHeight": "FIXED",
+    "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+    "isVisible": true,
+    "version": 1,
+    "isLoading": false,
+    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+    "mobileBottomRow": 50,
+    "widgetName": "nu_tags",
+    "isFilterable": true,
+    "dynamicPropertyPathList": [{"key": "sourceData"}],
+    "displayName": "MultiSelect",
+    "searchTags": [
+        "dropdown",
+        "tags"
+    ],
+    "bottomRow": 42,
+    "parentRowSpace": 10,
+    "hideCard": false,
+    "mobileRightColumn": 20,
+    "parentColumnSpace": 11.09375,
+    "dynamicTriggerPathList": [],
+    "labelPosition": "Top",
+    "labelTextColor": "#52525b",
+    "sourceData": [
+        {
+            "label": "Blue",
+            "value": "BLUE"
+        },
+        {
+            "label": "Green",
+            "value": "GREEN"
+        },
+        {
+            "label": "Red",
+            "value": "RED"
+        }
+    ],
+    "key": "c6hfyrl3mn",
+    "labelTextSize": "1rem",
+    "isDeprecated": false,
+    "rightColumn": 27,
+    "widgetId": "bnicz3t6fj",
+    "optionValue": "value",
+    "minWidth": 450,
+    "parentId": "i8d63mg28c",
+    "labelAlignment": "left",
+    "renderMode": "CANVAS",
+    "mobileTopRow": 43,
+    "optionLabel": "label",
+    "responsiveBehavior": "fill",
+    "mobileLeftColumn": 0,
+    "maxDynamicHeight": 9000,
+    "minDynamicHeight": 4
+}

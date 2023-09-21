@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "utils",
+    "pageId": "Schedule-management-coach",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Schedule-management-coach_utils",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_64da193bae4e5667f590b381"
+}

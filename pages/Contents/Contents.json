@@ -1,0 +1,103 @@
+{
+  "unpublishedPage": {
+    "name": "Contents",
+    "slug": "contents",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1090,
+          "containerStyle": "none",
+          "snapRows": 64,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 83,
+          "minHeight": 660,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Contents_JSObject.checkLogin",
+              "name": "JSObject.checkLogin",
+              "collectionId": "Contents_JSObject",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await getContents.run().then(data => {\n    storeValue('returedData', data);\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Contents_auth.checkLogin",
+              "name": "auth.checkLogin",
+              "collectionId": "Contents_auth",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await getContents.run().then(data => {\n    storeValue('returedTodos', data);\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Contents_utils.getContents",
+              "name": "utils.getContents",
+              "collectionId": "Contents_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const contents = await getContents.run();\n  let filteredContents = contents;\n  if (sel_status.selectedOptionValue) {\n    filteredContents = filteredContents.filter(k => k.status === sel_status.selectedOptionValue);\n  }\n  return filteredContents.map(o => {\n    return {\n      id: o.id,\n      title: o.title,\n      description: o.description,\n      short_description: o.short_description,\n      content_type: o.content_type,\n      content: o.content,\n      week: o.week,\n      image_id: o.image_id,\n      end_week: o.end_week,\n      tags: o.tags,\n      status: o.status\n    };\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Contents_utils.init",
+              "name": "utils.init",
+              "collectionId": "Contents_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const shippingDate = dat_shippingDate.formattedDate || new Date().toISOString();\n  storeValue('defaultTab', 'Sales Order');\n  storeValue('carrier', {\n    id: 1,\n    name: 'FedEX',\n    shippingRate: 2.5,\n    shippingDate: shippingDate,\n    Eta: new Date(new Date(shippingDate).getTime() + 4 * 24 * 60 * 60 * 1000).toDateString()\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Contents_getOrders",
+              "name": "getOrders",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "(tbl_orders.pageNo - 1) * tbl_orders.pageSize",
+                "tbl_orders.pageSize"
+              ],
+              "timeoutInMillisecond": 20000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Contents",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_6477d2e444540c69ea5d4345"
+}

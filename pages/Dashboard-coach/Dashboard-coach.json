@@ -1,0 +1,104 @@
+{
+  "unpublishedPage": {
+    "name": "Dashboard-coach",
+    "slug": "dashboard-coach",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 4896,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1090,
+          "containerStyle": "none",
+          "snapRows": 124,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 86,
+          "minHeight": 1292,
+          "dynamicTriggerPathList": [],
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Dashboard-coach_JSObject.checkLogin",
+              "name": "JSObject.checkLogin",
+              "collectionId": "Dashboard-coach_JSObject",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await is_coach.run().then(data => {\n    if (data == true) {\n      console.log(\"hi\");\n    } else {\n      navigateTo('Login', {});\n    }\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Dashboard-coach_getOrders",
+              "name": "getOrders",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 20000
+            },
+            {
+              "id": "Dashboard-coach_utils.dashboardMetrics",
+              "name": "utils.dashboardMetrics",
+              "collectionId": "Dashboard-coach_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Dashboard-coach_utils.calculateAvFulfilTIme",
+              "name": "utils.calculateAvFulfilTIme",
+              "collectionId": "Dashboard-coach_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Dashboard-coach_utils.revenueChart",
+              "name": "utils.revenueChart",
+              "collectionId": "Dashboard-coach_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Dashboard-coach_utils.topOrderedProductsChart",
+              "name": "utils.topOrderedProductsChart",
+              "collectionId": "Dashboard-coach_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Dashboard-coach",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_64bedb19f155843385ac6bc1"
+}

@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "utils",
+    "pageId": "Schedule-management-trainer",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Schedule-management-trainer_utils",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_650a436aff473c64dc8a3305"
+}

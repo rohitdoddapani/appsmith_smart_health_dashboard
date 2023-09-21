@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "auth",
+    "pageId": "Contents",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Contents_auth",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_6488f6ea064d860ffc88d3b0"
+}

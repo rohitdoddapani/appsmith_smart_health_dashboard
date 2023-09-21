@@ -1,0 +1,5 @@
+{
+	"name": {{update_tagname.inputText}},
+	"start_week":{{parseInt(update_startweek.text)}},
+	"end_week":{{parseInt(update_endweek.text)}}
+}
