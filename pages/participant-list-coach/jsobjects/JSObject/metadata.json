@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject",
+    "pageId": "participant-list-coach",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "participant-list-coach_JSObject",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_6511f62e8a190647c3cf5c97"
+}

@@ -84,7 +84,7 @@
         "zoom_url",
         "slots_booked"
     ],
-    "dynamicPropertyPathList": [],
+    "dynamicPropertyPathList": [{"key": "tableData"}],
     "displayName": "Table",
     "bottomRow": 65,
     "columnWidthMap": {
@@ -439,7 +439,7 @@
     "widgetId": "9p8f6ynqmc",
     "allowAddNewRow": false,
     "minWidth": 450,
-    "tableData": "{{coach_schedule.data}}",
+    "tableData": "{{utils.scheduleData.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "wrxbq72ocg",

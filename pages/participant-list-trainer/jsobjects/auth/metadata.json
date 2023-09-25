@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "auth",
+    "pageId": "participant-list-trainer",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "participant-list-trainer_auth",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_6511f928069cce6a39c404e9"
+}

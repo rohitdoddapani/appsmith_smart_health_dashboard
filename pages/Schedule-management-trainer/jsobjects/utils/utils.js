@@ -105,7 +105,8 @@ export default {
 					console.log("success "+ data);
 					showAlert('Schedule added successfully', 'success');
 					storeValue('stData',[]);
-					coach_schedule.run();
+					// coach_schedule.run();
+					this.scheduleData();
 				})
 		});
 	},
@@ -114,5 +115,50 @@ export default {
 		appsmith.store.stData=[];
 		storeValue('stData',[]);
 		storeValue('slotData',[])
+	},
+	scheduleData: async () => {
+		var filteredData = [];
+		await coach_schedule.run().then(data=> {
+			// console.log(data);
+			filteredData = data.filter(item => item.tag !== 'SHC');
+		})
+		// const data = [ { date: "2023-09-30", start_time: "10:00 AM" },{ date: "2023-09-30", start_time: "9:00 AM" }, { date: "2023-09-29", start_time: "8:00 AM" }]
+		return this.customSort(filteredData);
+	},
+	customSort: (data) => {
+    return data.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+
+        if (dateA < dateB) {
+            return -1;
+        } else if (dateA > dateB) {
+            return 1;
+        } else {
+            // If dates are equal, compare by start_time
+            const timeA = this.parseTime(a.start_time);
+            const timeB = this.parseTime(b.start_time);
+
+            if (timeA < timeB) {
+                return -1;
+            } else if (timeA > timeB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    });
+	},
+	parseTime: (timeStr) => {
+    const [time, period] = timeStr.split(' ');
+    const [hours, minutes] = time.split(':');
+    let hoursInt = parseInt(hours);
+    if (period === 'PM' && hoursInt < 12) {
+        hoursInt += 12;
+    } else if (period === 'AM' && hoursInt === 12) {
+        hoursInt = 0;
+    }
+    return hoursInt * 60 + parseInt(minutes);
 	}
+
 }

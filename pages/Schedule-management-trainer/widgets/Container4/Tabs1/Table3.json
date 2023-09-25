@@ -12,7 +12,6 @@
         {"key": "accentColor"},
         {"key": "borderRadius"},
         {"key": "boxShadow"},
-        {"key": "tableData"},
         {"key": "primaryColumns.id.computedValue"},
         {"key": "primaryColumns.created_at.computedValue"},
         {"key": "primaryColumns.coach_name.computedValue"},
@@ -24,7 +23,8 @@
         {"key": "primaryColumns.zoom_url.computedValue"},
         {"key": "primaryColumns.date.computedValue"},
         {"key": "primaryColumns.slots_booked.computedValue"},
-        {"key": "primaryColumns.duration.computedValue"}
+        {"key": "primaryColumns.duration.computedValue"},
+        {"key": "tableData"}
     ],
     "needsHeightForContent": true,
     "leftColumn": 0,
@@ -94,7 +94,7 @@
         "slots_booked": 129,
         "end_time": 109,
         "id": 60,
-        "tag": 98,
+        "tag": 122,
         "is_booked": 105
     },
     "parentRowSpace": 10,
@@ -359,7 +359,7 @@
             "verticalAlignment": "CENTER"
         },
         "tag": {
-            "computedValue": "{{Table3.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"tag\"]))}}",
+            "computedValue": "{{Table3.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"tag\"]==\"ZOOM\" ? '1_0_1_ZOOM' : currentRow[\"tag\"]))}}",
             "isEditable": false,
             "alias": "tag",
             "enableSort": true,
@@ -451,7 +451,7 @@
     "widgetId": "9p8f6ynqmc",
     "allowAddNewRow": false,
     "minWidth": 450,
-    "tableData": "{{coach_schedule.data}}",
+    "tableData": "{{utils.scheduleData.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "wrxbq72ocg",

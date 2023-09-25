@@ -29,17 +29,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Dashboard-coach_JSObject.checkLogin",
-              "name": "JSObject.checkLogin",
-              "collectionId": "Dashboard-coach_JSObject",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  await is_coach.run().then(data => {\n    if (data == true) {\n      console.log(\"hi\");\n    } else {\n      navigateTo('Login', {});\n    }\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Dashboard-coach_getOrders",
               "name": "getOrders",
               "confirmBeforeExecute": false,
@@ -59,6 +48,30 @@
           ],
           [
             {
+              "id": "Dashboard-coach_utils.topOrderedProductsChart",
+              "name": "utils.topOrderedProductsChart",
+              "collectionId": "Dashboard-coach_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Dashboard-coach_JSObject.checkLogin",
+              "name": "JSObject.checkLogin",
+              "collectionId": "Dashboard-coach_JSObject",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await is_coach.run().then(data => {\n    if (data == true) {\n      console.log(\"hi\");\n    } else {\n      navigateTo('Login', {});\n    }\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
               "id": "Dashboard-coach_utils.calculateAvFulfilTIme",
               "name": "utils.calculateAvFulfilTIme",
               "collectionId": "Dashboard-coach_utils",
@@ -70,15 +83,6 @@
             {
               "id": "Dashboard-coach_utils.revenueChart",
               "name": "utils.revenueChart",
-              "collectionId": "Dashboard-coach_utils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Dashboard-coach_utils.topOrderedProductsChart",
-              "name": "utils.topOrderedProductsChart",
               "collectionId": "Dashboard-coach_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",

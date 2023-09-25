@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1090,
+          "bottomRow": 1200,
           "containerStyle": "none",
           "snapRows": 124,
           "parentRowSpace": 1,
@@ -50,12 +50,13 @@
           ],
           [
             {
-              "id": "Schedule-management-coach_coach_schedule",
-              "name": "coach_schedule",
+              "id": "Schedule-management-coach_utils.scheduleData",
+              "name": "utils.scheduleData",
+              "collectionId": "Schedule-management-coach_utils",
               "confirmBeforeExecute": false,
-              "pluginType": "API",
+              "pluginType": "JS",
               "jsonPathKeys": [
-                "appsmith.store.jwt"
+                "async () => {\n  var filteredData = [];\n  await coach_schedule.run().then(data => {\n    filteredData = data.filter(item => item.tag == 'SHC');\n  });\n  return utils.customSort(filteredData);\n}"
               ],
               "timeoutInMillisecond": 10000
             }

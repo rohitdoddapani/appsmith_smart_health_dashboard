@@ -47,6 +47,14 @@
     {
       "id": "Schedule-management-trainer",
       "isDefault": false
+    },
+    {
+      "id": "participant-list-coach",
+      "isDefault": false
+    },
+    {
+      "id": "participant-list-trainer",
+      "isDefault": false
     }
   ],
   "viewMode": false,
