@@ -79,7 +79,7 @@ export default {
 				short_description: o.short_description,
 				content_type: o.content_type,
 				content: o.content,
-				week: o.week,
+				week_no: o.week_no,
 				image_id: o.image_id,
 				end_week: o.end_week,
 				tags: o.tags,

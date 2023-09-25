@@ -23,7 +23,7 @@ export default {
 			"short_description": shortDescription.inputText ,
 			"content_type": contentType.selectedOptionValue ,
 			"content": content ,
-			"week": week.inputText ,
+			"week_no": week.inputText ,
 			"image_id": imageId ,
 			"end_week": endWeek.inputText,
 			"status": status.selectedOptionValue
@@ -57,7 +57,7 @@ export default {
 			"short_description": shortDescriptionCopy.inputText ,
 			"content_type": contentTypeCopy.selectedOptionValue ,
 			"content": content ,
-			"week": weekCopy.inputText ,
+			"week_no": weekCopy.inputText ,
 			"image_id": imageId ,
 			"end_week": endWeekCopy.inputText,
 			"status": statusCopy.selectedOptionValue
@@ -84,6 +84,7 @@ export default {
 		console.log("In getthumbnail");
 		if(contentType.selectedOptionValue == "Article"){
 			appsmith.store.thumbnail = thumbnailImageCopy.files[0].data;
+			console.log(appsmith.store.thumbnail)
 		}else{
 			if(appsmith.store.contentFlag == "update"){
 				appsmith.store.youtubelink = videoLink.inputText;
@@ -114,6 +115,7 @@ export default {
 		const supa = supabase.createClient('https://jqrzlhdeqiarbgueyqdq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxcnpsaGRlcWlhcmJndWV5cWRxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NDg3NTMyNiwiZXhwIjoyMDAwNDUxMzI2fQ.8JOKNmSxbtS_PUChiiHMByfzeTx9-2H7LYkK3IZCwTY');
 		
 		if(appsmith.store.contentFlag == "update"){
+			console.log("In content: "+appsmith.store.thumbnail)
 			const { data, error } = await supa
 			.from('images')
 			.update({ image: appsmith.store.thumbnail })

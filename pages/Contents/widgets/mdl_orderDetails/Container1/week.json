@@ -52,6 +52,6 @@
     "maxDynamicHeight": 9000,
     "originalBottomRow": 107,
     "iconAlign": "left",
-    "defaultText": "{{tbl_orders.selectedRow.week}}",
+    "defaultText": "{{tbl_orders.selectedRow.week_no}}",
     "minDynamicHeight": 4
 }

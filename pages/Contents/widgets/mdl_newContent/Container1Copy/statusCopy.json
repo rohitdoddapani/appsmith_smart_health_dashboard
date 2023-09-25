@@ -27,6 +27,7 @@
     "mobileBottomRow": 139,
     "widgetName": "statusCopy",
     "isFilterable": false,
+    "dynamicPropertyPathList": [{"key": "sourceData"}],
     "displayName": "Select",
     "searchTags": ["dropdown"],
     "bottomRow": 117,

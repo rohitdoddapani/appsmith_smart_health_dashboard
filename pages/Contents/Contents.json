@@ -19,7 +19,7 @@
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
-          "version": 83,
+          "version": 86,
           "minHeight": 660,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
@@ -56,7 +56,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const contents = await getContents.run();\n  let filteredContents = contents;\n  if (sel_status.selectedOptionValue) {\n    filteredContents = filteredContents.filter(k => k.status === sel_status.selectedOptionValue);\n  }\n  return filteredContents.map(o => {\n    return {\n      id: o.id,\n      title: o.title,\n      description: o.description,\n      short_description: o.short_description,\n      content_type: o.content_type,\n      content: o.content,\n      week: o.week,\n      image_id: o.image_id,\n      end_week: o.end_week,\n      tags: o.tags,\n      status: o.status\n    };\n  });\n}"
+                "async () => {\n  const contents = await getContents.run();\n  let filteredContents = contents;\n  if (sel_status.selectedOptionValue) {\n    filteredContents = filteredContents.filter(k => k.status === sel_status.selectedOptionValue);\n  }\n  return filteredContents.map(o => {\n    return {\n      id: o.id,\n      title: o.title,\n      description: o.description,\n      short_description: o.short_description,\n      content_type: o.content_type,\n      content: o.content,\n      week_no: o.week_no,\n      image_id: o.image_id,\n      end_week: o.end_week,\n      tags: o.tags,\n      status: o.status\n    };\n  });\n}"
               ],
               "timeoutInMillisecond": 10000
             },
