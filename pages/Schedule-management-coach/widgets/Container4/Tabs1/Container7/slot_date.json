@@ -43,7 +43,7 @@
     "labelTextSize": "0.875rem",
     "isDeprecated": false,
     "rightColumn": 63,
-    "defaultDate": "{{moment()}}",
+    "defaultDate": "{{appsmith.store.cacheData.date ? appsmith.store.cacheData.date : moment()}}",
     "widgetId": "421jkykqqs",
     "minWidth": 450,
     "label": "Select Date",

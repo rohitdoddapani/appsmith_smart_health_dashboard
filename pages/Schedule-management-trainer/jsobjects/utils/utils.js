@@ -7,6 +7,15 @@ export default {
 		var end = slot_to.selectedOptionValue;
 		var coachName = coach_name.selectedOptionValue;
 		var tagSelected = select_tag.selectedOptionValue;
+		var cacheData = {
+			date: slot_date.selectedDate,
+			duration: slot_duration.selectedOptionValue,
+			start: slot_from.selectedOptionValue,
+			end: slot_to.selectedOptionValue,
+			coachName: coach_name.selectedOptionValue,
+			tagSelected: select_tag.selectedOptionValue
+		}
+		storeValue('cacheData',cacheData);
 		console.log(date)
 		var d;
 		if(slotData){
@@ -105,6 +114,7 @@ export default {
 					console.log("success "+ data);
 					showAlert('Schedule added successfully', 'success');
 					storeValue('stData',[]);
+					storeValue('cacheData',{});
 					// coach_schedule.run();
 					this.scheduleData();
 				})

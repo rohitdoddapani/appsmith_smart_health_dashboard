@@ -6,12 +6,13 @@
     "labelWidth": 5,
     "type": "SELECT_WIDGET",
     "serverSideFiltering": false,
-    "defaultOptionValue": "30Min",
+    "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( appsmith.store.cacheData.duration ? appsmith.store.cacheData.duration : '30Min'))(slot_duration.options, slot_duration.serverSideFiltering) }}",
     "animateLoading": true,
     "leftColumn": 22,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"}
+        {"key": "borderRadius"},
+        {"key": "defaultOptionValue"}
     ],
     "placeholderText": "Select option",
     "isDisabled": false,

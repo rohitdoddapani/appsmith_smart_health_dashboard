@@ -6,12 +6,13 @@
     "labelWidth": 5,
     "type": "SELECT_WIDGET",
     "serverSideFiltering": false,
-    "defaultOptionValue": "Joshua",
+    "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( appsmith.store.cacheData.coachName ? appsmith.store.cacheData.coachName : 'Joshua'))(coach_name.options, coach_name.serverSideFiltering) }}",
     "animateLoading": true,
     "leftColumn": 0,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"}
+        {"key": "borderRadius"},
+        {"key": "defaultOptionValue"}
     ],
     "placeholderText": "Select option",
     "isDisabled": false,
