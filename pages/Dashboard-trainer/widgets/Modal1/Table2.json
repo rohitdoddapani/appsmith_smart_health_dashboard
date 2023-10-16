@@ -324,6 +324,7 @@
     "rightColumn": 63,
     "textSize": "0.875rem",
     "widgetId": "drhd4f4cdz",
+    "enableServerSideFiltering": false,
     "tableData": "{{\n[\n  {\n    id: 1,\n    name: \"Product A\",\n    description: \"A basic product\",\n    price: 10.99,\n    category: \"electronics\",\n    brand: \"Brand A\",\n    image_url: \"https://example.com/product_a.png\",\n    in_stock: true\n  },\n  {\n    id: 2,\n    name: \"Product B\",\n    description: \"Another basic product\",\n    price: 15.99,\n    category: \"home appliances\",\n    brand: \"Brand B\",\n    image_url: \"https://example.com/product_b.png\",\n    in_stock: true\n  },\n  {\n    id: 3,\n    name: \"Product C\",\n    description: \"A simple product\",\n    price: 5.99,\n    category: \"office supplies\",\n    brand: \"Brand C\",\n    image_url: \"https://example.com/product_c.png\",\n    in_stock: true\n  },\n  {\n    id: 4,\n    name: \"Product D\",\n    description: \"A standard product\",\n    price: 12.49,\n    category: \"clothing\",\n    brand: \"Brand D\",\n    image_url: \"https://example.com/product_d.png\",\n    in_stock: true\n  },\n  {\n    id: 5,\n    name: \"Product E\",\n    description: \"A classic product\",\n    price: 7.99,\n    category: \"books\",\n    brand: \"Brand E\",\n    image_url: \"https://example.com/product_e.png\",\n    in_stock: true\n  }\n]\n}}",
     "label": "Data",
     "searchKey": "",

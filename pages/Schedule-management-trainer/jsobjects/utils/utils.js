@@ -7,7 +7,34 @@ export default {
 		var end = slot_to.selectedOptionValue;
 		var coachName = coach_name.selectedOptionValue;
 		var tagSelected = select_tag.selectedOptionValue;
-		var cacheData = {
+		console.log(date,start);
+		// Specify the local time zone
+		const localTimeZone = moment.tz.guess();
+		const originalStartTime= date + ' ' + start;
+		const originalEndTime = date + ' ' + end;
+		console.log("originalStartTime",originalStartTime);
+		// Parse the original date and time using moment.js
+		const parsedStartTime= moment(originalStartTime, 'YYYY-MM-DD hh:mm A');
+		const parsedEndTime = moment(originalEndTime, 'YYYY-MM-DD hh:mm A');
+		// Format the parsed date and time in the desired format
+		const formattedStartTime = parsedStartTime.format('YYYY-MM-DDTHH:mm:ss');
+		const formattedEndTime = parsedEndTime.format('YYYY-MM-DDTHH:mm:ss');
+		console.log("formattedDateTime",formattedStartTime); // Output: '2023-10-12T12:00:00'
+
+		// Create a Moment.js object for your local time
+		const localStartTime = moment.tz(formattedStartTime, localTimeZone);
+		const localEndTime = moment.tz(formattedEndTime, localTimeZone);
+
+		// Convert the local time to UTC
+		console.log('Local Time:', localStartTime.format());
+		const utcStartTime = localStartTime.utc();
+		const utcEndTime = localEndTime.utc();
+		console.log('UTC Time:', utcStartTime.format());
+		var formattedUTCStartTime = utcStartTime.format();
+		var formattedUTCEndTime = utcEndTime.format();
+		console.log(formattedUTCStartTime,formattedUTCEndTime);
+
+	var cacheData = {
 			date: slot_date.selectedDate,
 			duration: slot_duration.selectedOptionValue,
 			start: slot_from.selectedOptionValue,
@@ -24,7 +51,7 @@ export default {
 			d=[]
 		}
 		d.push([slot_from.selectedOptionValue,slot_to.selectedOptionValue,date,duration])
-		appsmith.store.slotData = d;
+		// appsmith.store.slotData = d;
 		storeValue('slotData',d)
 		console.log(appsmith.store.slotData);
 		
@@ -32,19 +59,26 @@ export default {
 		
 		const intervals = appsmith.store.stData ? appsmith.store.stData : [];
 		let idCounter = appsmith.store.idCount ? appsmith.store.idCount + 1 : 1;
-
-		const start_v = new Date(`${date} ${start}`);
-		const end_v = new Date(`${date} ${end}`);
-		const intervalMilliseconds = parseDuration(duration);
+		
+		// const start_v = new Date(`${date} ${start}`);
+		// const end_v = new Date(`${date} ${end}`);
+		// const intervalMilliseconds = parseDuration(duration);
+		
+		const start_v = new Date(formattedUTCStartTime);
+		const end_v = new Date(formattedUTCEndTime);
+		console.log(start_v,end_v);
+	const intervalMilliseconds = parseDuration(duration);
 
 		while (start_v.getTime() + intervalMilliseconds <= end_v.getTime()) {
 			const intervalEnd = new Date(start_v.getTime() + intervalMilliseconds);
 			intervals.push({
 				key: idCounter++,
-				date: date,
+				date: start_v.toISOString(),
 				duration: duration,
 				start_time: formatTime12Hour(start_v),
 				end_time: formatTime12Hour(intervalEnd),
+				startTime: start_v.toISOString(),
+				endTime: intervalEnd.toISOString(),
 				coach_name: coachName,
 				tag: tagSelected
 			});
@@ -107,6 +141,8 @@ export default {
 				"date": slot.date,
 				"duration": slot.duration,
 				"slots_booked": 0,
+				"startTime": slot.startTime,
+				"endTime": slot.endTime
 			}
 			storeValue('final_slot',slot_structure)
 			await post_schedule.run(slot_structure)
@@ -121,8 +157,8 @@ export default {
 		});
 	},
 	clearStore:()=> {
-		appsmith.store.slotData=[];
-		appsmith.store.stData=[];
+		// appsmith.store.slotData=[];
+		// appsmith.store.stData=[];
 		storeValue('stData',[]);
 		storeValue('slotData',[])
 	},
