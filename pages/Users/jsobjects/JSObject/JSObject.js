@@ -5,13 +5,44 @@ export default {
 		navigateTo('Login',{});
 	},
 	createUser: async () => {
+
 		
-		const SUPABASE_URL = "https://jqrzlhdeqiarbgueyqdq.supabase.co"
-		const sp = supabase.createClient(SUPABASE_URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxcnpsaGRlcWlhcmJndWV5cWRxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NDg3NTMyNiwiZXhwIjoyMDAwNDUxMzI2fQ.8JOKNmSxbtS_PUChiiHMByfzeTx9-2H7LYkK3IZCwTY')
+		if(!nu_addEmail.text){
+			showAlert('Email is required!', 'error');
+			return;
+		}
+		if(!nu_addFirstName.text){
+			showAlert('First Name is required!', 'error');
+			return;
+		}
+		if(!nu_addLastName.text){
+			showAlert('Last Name is required!', 'error');
+			return;
+		}
+		if(!nu_addPhone.value){
+			showAlert('Phone is required!', 'error');
+			return;
+		}
+		if(!nu_userType.selectedOptionValue){
+			showAlert('Usertype is required!', 'error');
+			return;
+		}
+		if(!nu_intervention.text){
+			showAlert('Intervention_number is required!', 'error');
+			return;
+		}
+		if(!nu_startTime.formattedDate){
+			showAlert('Start Time is required!', 'error');
+			return;
+		}
+		if(!nu_tags.selectedOptionValues.length){
+			showAlert('Atleast One Tag is required!', 'error');
+			return;
+		}
+		
 		
 		var _intervention_no = parseInt(nu_intervention.text);
 		var _tags = nu_tags.selectedOptionValues.toString();
-		
 		const jsonUserData = {
 			"email": nu_addEmail.text,
 			"data": { 
@@ -25,28 +56,42 @@ export default {
 				"status":"User Invited",
 				"tags":_tags }
 		}
-		
+
 		// appsmith.store.jsonUserData = jsonUserData;
 		storeValue("jsonUserData", jsonUserData);
-		console.log(appsmith.store.jsonUserData);
+		// console.log(appsmith.store.jsonUserData);
 		await invite_user.run().then(data=>{
 			console.log(data.error? 'hi':'bye');
 			if(data.error){
+				console.log("In error");
 				showAlert('user creation failed!', 'error');
+				showAlert(data.msg,'error');
 			}else{
 				showAlert('user created', 'success');
+				resetWidget('nu_addEmail')
+				resetWidget('nu_addFirstName')
+				resetWidget('nu_addLastName')
+				resetWidget('nu_addPhone')
+				resetWidget('nu_gender')
+				resetWidget('nu_userType')
+				resetWidget('nu_startTime')
+				resetWidget('nu_tags')
+				resetWidget('nu_intervention')
+				utils.getUsers();
 				closeModal('mdl_addCustomer');
 			}
 		}).catch(err=>{
-			console.log(err);
+			// console.log(err);
+			// console.log(invite_user.data.msg);
 			showAlert('user creation failed!', 'error');
+			showAlert(invite_user.data.msg,'error');
 		})
-		
+
 	},
 	updateUser: async () => {
 		var _intervention_no = parseInt(exs_intervention.text);
 		var _tags = exs_tags.selectedOptionValues.toString();
-		
+
 		const jsonUserUpdateData = {
 			"userId": exs_userId.text,
 			"user_type": exs_usertype.selectedOptionValue,

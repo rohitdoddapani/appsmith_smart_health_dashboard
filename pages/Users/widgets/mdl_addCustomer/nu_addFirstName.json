@@ -1,6 +1,7 @@
 {
     "boxShadow": "none",
     "widgetName": "nu_addFirstName",
+    "dynamicPropertyPathList": [{"key": "isRequired"}],
     "displayName": "Input",
     "iconSVG": "/static/media/icon.9f505595da61a34f563dba82adeb06ec.svg",
     "searchTags": [
@@ -32,7 +33,7 @@
     "isDisabled": false,
     "key": "xand4157g1",
     "labelTextSize": "1rem",
-    "isRequired": false,
+    "isRequired": "true",
     "isDeprecated": false,
     "rightColumn": 27,
     "dynamicHeight": "FIXED",

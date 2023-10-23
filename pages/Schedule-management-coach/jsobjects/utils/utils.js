@@ -42,7 +42,7 @@ export default {
 			coachName: coach_name.selectedOptionValue
 		}
 		storeValue('cacheData',cacheData);
-		console.log(date)
+		// console.log(date)
 		var d;
 		if(slotData){
 		d = slotData
@@ -70,6 +70,10 @@ export default {
 		
 		while (start_v.getTime() + intervalMilliseconds <= end_v.getTime()) {
 			const intervalEnd = new Date(start_v.getTime() + intervalMilliseconds);
+			const isoString = start_v.toISOString();
+			const dateObject = new Date(isoString);
+			const dateOnly = dateObject.toISOString().split('T')[0];
+			console.log(dateOnly);
 			intervals.push({
 				key: idCounter++,
 				date: start_v.toISOString(),
@@ -79,7 +83,8 @@ export default {
 				startTime: start_v.toISOString(),
 				endTime: intervalEnd.toISOString(),
 				coach_name: coachName,
-				tag: tagSelected
+				tag: tagSelected,
+				formated_date: dateOnly
 			});
 			start_v.setTime(intervalEnd.getTime());
 		}
@@ -141,7 +146,8 @@ export default {
 				"duration": slot.duration,
 				"slots_booked": 0,
 				"startTime": slot.startTime,
-				"endTime": slot.endTime
+				"endTime": slot.endTime,
+				"formated_date": slot.formated_date
 			}
 			storeValue('final_slot',slot_structure)
 			await post_schedule.run(slot_structure)
