@@ -55,6 +55,10 @@
     {
       "id": "participant-list-trainer",
       "isDefault": false
+    },
+    {
+      "id": "zoom-class-management-trainer",
+      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -87,6 +91,12 @@
     },
     {
       "uidString": "jspdf_https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    },
+    {
+      "uidString": "xmlParser_https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.5/parser.min.js"
+    },
+    {
+      "uidString": "luxon_https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"
     }
   ],
   "publishedCustomJSLibs": [],

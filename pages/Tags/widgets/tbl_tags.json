@@ -226,6 +226,7 @@
     "textSize": "0.875rem",
     "widgetId": "0w0tnwcbc6",
     "allowAddNewRow": false,
+    "enableServerSideFiltering": false,
     "tableData": "{{utils.getTags.data}}",
     "label": "Data",
     "searchKey": "",

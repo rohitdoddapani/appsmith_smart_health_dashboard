@@ -1,0 +1,75 @@
+{
+  "unpublishedPage": {
+    "name": "zoom-class-management-trainer",
+    "slug": "zoom-class-management-trainer",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 4896,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1090,
+          "containerStyle": "none",
+          "snapRows": 124,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 87,
+          "minHeight": 1292,
+          "dynamicTriggerPathList": [],
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "zoom-class-management-trainer_JSObject.checkLogin",
+              "name": "JSObject.checkLogin",
+              "collectionId": "zoom-class-management-trainer_JSObject",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "zoom-class-management-trainer_getOrders",
+              "name": "getOrders",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 20000
+            },
+            {
+              "id": "zoom-class-management-trainer_utils.scheduleData",
+              "name": "utils.scheduleData",
+              "collectionId": "zoom-class-management-trainer_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  var filteredData = [];\n  await coach_schedule.run().then(data => {\n    filteredData = data.filter(item => item.tag !== 'SHC');\n  });\n  return utils.customSort(filteredData);\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "zoom-class-management-trainer",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_654018c06fb04d2b59b9affd"
+}
