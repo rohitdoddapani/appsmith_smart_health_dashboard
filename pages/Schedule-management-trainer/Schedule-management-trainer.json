@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1090,
+          "bottomRow": 1200,
           "containerStyle": "none",
           "snapRows": 124,
           "parentRowSpace": 1,
@@ -46,7 +46,9 @@
               "pluginType": "DB",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 20000
-            },
+            }
+          ],
+          [
             {
               "id": "Schedule-management-trainer_utils.scheduleData",
               "name": "utils.scheduleData",

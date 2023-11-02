@@ -1,4 +1,14 @@
 export default {
+	zoomClassManagementData: async () => {
+		var filteredData = [];
+		await get_zoom_class_management.run().then(data=> {
+			// console.log(data);
+			// filteredData = data.filter(item => item.tag !== 'SHC');
+			filteredData = data;
+		})
+		// const data = [ { date: "2023-09-30", start_time: "10:00 AM" },{ date: "2023-09-30", start_time: "9:00 AM" }, { date: "2023-09-29", start_time: "8:00 AM" }]
+		return this.customSort(filteredData);
+	},
 	addClass: () => {
 		var classData = appsmith.store.classData;
 		var date = zc_startdate.selectedDate.slice(0,10)
@@ -8,71 +18,46 @@ export default {
 		var classType = zc_classtype.selectedOptionValue;
 		var title = zc_title.text;
 		var shortDesc = zc_shortdesc.text;
+		var endDate = zc_enddate.selectedDate.slice(0,10);
 
 		// Specify the local time zone
 		const localTimeZone = moment.tz.guess();
 		console.log(localTimeZone);
 		const originalStartTime= date + ' ' + start;
 		const originalEndTime = date + ' ' + end;
+		const originalEndDate = endDate + ' ' + end;
 		console.log("originalStartTime",originalStartTime);
 		// Parse the original date and time using moment.js
 		const parsedStartTime= moment(originalStartTime, 'YYYY-MM-DD hh:mm A');
 		const parsedEndTime = moment(originalEndTime, 'YYYY-MM-DD hh:mm A');
+		const parsedEndDate = moment(originalEndDate, 'YYYY-MM-DD hh:mm A');
 		// Format the parsed date and time in the desired format
 		const formattedStartTime = parsedStartTime.format('YYYY-MM-DDTHH:mm:ss');
 		const formattedEndTime = parsedEndTime.format('YYYY-MM-DDTHH:mm:ss');
+		const formattedEndDate = parsedEndDate.format('YYYY-MM-DDTHH:mm:ss');
 		console.log("formattedDateTime",formattedStartTime); // Output: '2023-10-12T12:00:00'
 
 		// Create a Moment.js object for your local time
 		const localStartTime = moment.tz(formattedStartTime, localTimeZone);
 		const localEndTime = moment.tz(formattedEndTime, localTimeZone);
+		const localEndDate = moment.tz(formattedEndDate, localTimeZone);
 		
 		// console.log("localTIme:",localStartTime,localEndTime.format());
 		
-		const isDST = localStartTime.isInDST;
-		console.log("Heyyyyyy:",moment.tz(formattedStartTime, "America/Chicago").format(),isDST);
+		// const isDST = localStartTime.isInDST;
+		// console.log("Heyyyyyy:",moment.tz(formattedStartTime, "America/Chicago").format(),isDST);
 		
-		// const { DateTime } = require('luxon');
-		
-		// Get the local time
-		const localStartTimeN = moment().local();
-		const localEndTimeN = moment().local().add(1, "hour");
-
-		// Convert the local time to UTC with timezone offset, taking DST into account
-		const utcStartTimeWithOffset = moment.tz(localStartTimeN,localTimeZone).utcOffset();
-		const utcEndTimeWithOffset = moment.tz(localEndTimeN,localTimeZone).utcOffset();
-
-		// Format the UTC time with timezone offset
-		const formattedUTCStartTimeWithOffset = utcStartTimeWithOffset;
-		const formattedUTCEndTimeWithOffset = utcEndTimeWithOffset;
-
-		// Print the UTC start and end times
-		console.log(formattedUTCStartTimeWithOffset, formattedUTCEndTimeWithOffset);
-		
-
-		// const localStartTimeN = luxon.DateTime.fromISO(formattedStartTime, { zone: localTimeZone });
-		// const localEndTimeN = luxon.DateTime.fromISO('2023-11-07T11:00:00', { zone: localTimeZone });
-// 
-		// // Convert the local time to UTC with the correct time zone offset
-		// const utcStartTimeWithOffset = localStartTimeN.toUTC();
-		// const utcEndTimeWithOffset = localEndTimeN.toUTC();
-// 
-		// // Format the UTC time with timezone offset
-		// const formattedUTCStartTimeWithOffset = utcStartTimeWithOffset.toString();
-		// const formattedUTCEndTimeWithOffset = utcEndTimeWithOffset.toString();
-		// console.log(formattedUTCStartTimeWithOffset, formattedUTCEndTimeWithOffset);
-		
-
-		// console.log("Hellooo:",moment.utcOffset(originalStartTime, "America/New_York"));
 
 		// Convert the local time to UTC
 		console.log('Local Time:', localStartTime.format());
 		const utcStartTime = localStartTime.utc();
 		const utcEndTime = localEndTime.utc();
+		const utcEndDate = localEndDate.utc();
 		console.log('UTC Time:', utcStartTime.format());
 		var formattedUTCStartTime = utcStartTime.format();
 		var formattedUTCEndTime = utcEndTime.format();
-		console.log(formattedUTCStartTime,formattedUTCEndTime);
+		var formattedUTCEndDate = utcEndDate.format();
+		console.log(formattedUTCStartTime,formattedUTCEndTime,formattedUTCEndDate);
 
 		var cacheData = {
 			date: zc_startdate.selectedDate,
@@ -84,8 +69,44 @@ export default {
 			classType: zc_classtype.selectedOptionValue,
 			endDate: zc_enddate.selectedDate
 		}
-		// storeValue('cacheData',cacheData);
+		// const startDate = '2023-11-06T10:00:00Z';
+		// const endDate = '2023-11-27T11:00:00Z';
+		// const startTime = '1970-01-01T10:00:00Z';
+		// const endTime = '1970-01-01T11:00:00Z';
+
+		const recurringEvents = this.generateRecurringEvents(formattedUTCStartTime, formattedUTCEndDate, formattedUTCStartTime, formattedUTCEndTime);
+
+		console.log(recurringEvents);
+		storeValue('zoomclassdata',recurringEvents)
+		
+		storeValue('cacheData',cacheData);
 		},
+	generateRecurringEvents: (startDate, endDate, startTime, endTime) => {
+		const events = [];
+		const startTimeObj = new Date(startTime);
+		const endTimeObj = new Date(endTime);
+
+		let currentDate = new Date(startDate);
+		const endDateObj = new Date(endDate);
+
+		while (currentDate <= endDateObj) {
+			const formattedStartDate = currentDate.toISOString();
+			const formattedStartTime = startTimeObj.toISOString();
+			const formattedEndTime = endTimeObj.toISOString();
+
+			events.push({
+				start_date: formattedStartDate,
+				start_time: formattedStartTime,
+				end_time: formattedEndTime,
+			});
+
+			currentDate.setDate(currentDate.getDate() + 7);
+			startTimeObj.setDate(startTimeObj.getDate() + 7);
+			endTimeObj.setDate(endTimeObj.getDate() + 7);
+		}
+
+		return events;
+	},
 	addSlot: () => {
 		var slotData = appsmith.store.slotData;
 		var date = zc_startdate.selectedDate.slice(0,10)

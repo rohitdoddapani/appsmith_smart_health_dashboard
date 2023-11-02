@@ -46,7 +46,9 @@
               "pluginType": "DB",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 20000
-            },
+            }
+          ],
+          [
             {
               "id": "Schedule-management-coach_utils.scheduleData",
               "name": "utils.scheduleData",

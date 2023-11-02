@@ -607,7 +607,7 @@
     "widgetId": "n0w1sgo3rz",
     "allowAddNewRow": false,
     "enableServerSideFiltering": false,
-    "tableData": "{{utils.getUsers.data}}",
+    "tableData": "{{utils.getUsers.data.filter((user) => {\n\tif(user.UserType){\n\t\treturn user.UserType.toLowerCase() === 'participant'\n\t}\n\t\n} )}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0",

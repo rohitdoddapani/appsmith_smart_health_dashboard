@@ -49,6 +49,7 @@
       }
     },
     "executeOnLoad": false,
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],

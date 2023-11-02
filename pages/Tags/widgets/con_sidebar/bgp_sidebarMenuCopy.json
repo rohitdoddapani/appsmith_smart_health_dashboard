@@ -131,7 +131,7 @@
             "isDisabled": false
         },
         "groupButton479fau89fj": {
-            "onClick": "{{JSObject.logOut();}}",
+            "onClick": "{{JSObject1.logOut();}}",
             "buttonType": "SIMPLE",
             "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
             "iconName": "log-out",
