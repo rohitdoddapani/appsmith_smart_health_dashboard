@@ -29,6 +29,17 @@
         "layoutOnLoadActions": [
           [
             {
+              "id": "Users_utils.getTags",
+              "name": "utils.getTags",
+              "collectionId": "Users_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  var transformedData;\n  await get_tags.run().then(data => {\n    transformedData = data.map(item => {\n      return {\n        label: item.name,\n        value: item.name\n      };\n    });\n  });\n  return transformedData;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
               "id": "Users_utils.getUsers",
               "name": "utils.getUsers",
               "collectionId": "Users_utils",

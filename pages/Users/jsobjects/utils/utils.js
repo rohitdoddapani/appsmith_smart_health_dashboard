@@ -28,6 +28,7 @@ export default {
 			}
 		})
 	},
+	
 	getCustomers: async () => {
 		const customers = await getCustomers.run();
 
@@ -43,7 +44,18 @@ export default {
 			}
 		})
 	},
-
+	getTags: async () => {
+		var transformedData;
+		await get_tags.run().then(data => {
+			transformedData = data.map(item => {
+				return {
+					label: item.name,
+					value: item.name,
+				};
+			});
+		});
+		return transformedData;
+	},
 	getCustomerOrders: async () => {
 		const customerOrders = await getCustomerOrders.run();
 

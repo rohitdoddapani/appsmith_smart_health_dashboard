@@ -9,7 +9,8 @@
     "leftColumn": 29,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"}
+        {"key": "borderRadius"},
+        {"key": "defaultDate"}
     ],
     "labelStyle": "BOLD",
     "isDisabled": false,
@@ -20,12 +21,13 @@
     "datePickerType": "DATE_PICKER",
     "version": 2,
     "isLoading": false,
-    "timePrecision": "minute",
+    "timePrecision": "None",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "closeOnSelection": true,
     "mobileBottomRow": 32,
     "widgetName": "nu_startTime",
     "minDate": "1920-12-31T18:30:00.000Z",
+    "dynamicPropertyPathList": [{"key": "defaultDate"}],
     "displayName": "DatePicker",
     "searchTags": ["calendar"],
     "bottomRow": 33,
@@ -38,7 +40,7 @@
     "labelPosition": "Top",
     "key": "bibbaokb6e",
     "labelTextSize": "0.875rem",
-    "defaultDate": "2023-09-19T17:45:57.5757-05:00",
+    "defaultDate": "{{moment()}}",
     "isDeprecated": false,
     "rightColumn": 57,
     "widgetId": "wae0i2ulyv",
