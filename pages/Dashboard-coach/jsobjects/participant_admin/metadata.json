@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "participant_admin",
+    "pageId": "Dashboard-coach",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Dashboard-coach_participant_admin",
+  "deleted": false,
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_65490138854f3f0930365dca"
+}

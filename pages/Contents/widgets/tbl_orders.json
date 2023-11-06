@@ -479,6 +479,7 @@
     "textSize": "0.875rem",
     "widgetId": "nkfoc62eb2",
     "allowAddNewRow": false,
+    "enableServerSideFiltering": false,
     "tableData": "{{utils.getContents.data}}",
     "label": "Data",
     "searchKey": "",

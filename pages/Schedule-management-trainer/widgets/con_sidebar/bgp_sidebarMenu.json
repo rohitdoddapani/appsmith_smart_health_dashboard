@@ -40,7 +40,7 @@
             "isVisible": true
         },
         "groupButton3": {
-            "onClick": "",
+            "onClick": "{{navigateTo('zoom-class-management-trainer', {}, 'SAME_WINDOW');}}",
             "buttonType": "SIMPLE",
             "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
             "iconName": "mobile-video",

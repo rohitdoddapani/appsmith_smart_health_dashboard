@@ -205,6 +205,7 @@
     "rightColumn": 62,
     "textSize": "0.875rem",
     "widgetId": "lpt99et358",
+    "enableServerSideFiltering": false,
     "minWidth": 450,
     "tableData": "{{\n\t[\n\t{\n\t\tProduct: tbl_returns.selectedRow.Product,\n\t\tCategory: tbl_returns.selectedRow.Description,\n\t\tAmount: tbl_returns.selectedRow.Amount,\n\t\tOrder: 1,\n\t}\n]\n}}",
     "label": "Data",

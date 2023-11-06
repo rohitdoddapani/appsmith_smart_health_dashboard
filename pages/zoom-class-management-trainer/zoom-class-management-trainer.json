@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1160,
+          "bottomRow": 1190,
           "containerStyle": "none",
           "snapRows": 124,
           "parentRowSpace": 1,
@@ -48,13 +48,13 @@
           ],
           [
             {
-              "id": "zoom-class-management-trainer_utils.scheduleData",
-              "name": "utils.scheduleData",
+              "id": "zoom-class-management-trainer_utils.zoomClassManagementData",
+              "name": "utils.zoomClassManagementData",
               "collectionId": "zoom-class-management-trainer_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  var filteredData = [];\n  await coach_schedule.run().then(data => {\n    filteredData = data.filter(item => item.tag !== 'SHC');\n  });\n  return utils.customSort(filteredData);\n}"
+                "async () => {\n  var filteredData = [];\n  await get_zoom_class_management.run().then(data => {\n    filteredData = data;\n  });\n  return utils.customSort(filteredData);\n}"
               ],
               "timeoutInMillisecond": 10000
             }

@@ -22,7 +22,7 @@
       "selfReferencingDataPaths": [],
       "jsArguments": []
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -35,7 +35,7 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-09-25T15:33:13Z"
+    "createdAt": "2023-10-30T20:57:37Z"
   },
   "id": "zoom-class-management-trainer_utils.scheduleData",
   "deleted": false,

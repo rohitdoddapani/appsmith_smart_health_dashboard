@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 4,
     "widgetName": "create_schedule_btn",
-    "onClick": "{{storeValue('tab', 'CreateSchedule');}}",
+    "onClick": "{{storeValue('tab', 'CreateClass');}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "dynamicPropertyPathList": [],
     "displayName": "Button",

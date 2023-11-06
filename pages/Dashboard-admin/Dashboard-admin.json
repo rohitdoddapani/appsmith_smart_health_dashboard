@@ -61,17 +61,6 @@
           ],
           [
             {
-              "id": "Dashboard-admin_utils.calculateAvFulfilTIme",
-              "name": "utils.calculateAvFulfilTIme",
-              "collectionId": "Dashboard-admin_utils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  const data = await getReturns.run();\n  const orders = {};\n  data.forEach(row => {\n    if (!orders[row.order_id]) {\n      orders[row.order_id] = {\n        order_id: row.order_id,\n        first_created: row.created,\n        last_created: row.created,\n        count: 1\n      };\n    } else {\n      const order = orders[row.order_id];\n      if (row.created < order.first_created) {\n        order.first_created = row.created;\n      }\n      if (row.created > order.last_created) {\n        order.last_created = row.created;\n      }\n      order.count += 1;\n    }\n  });\n  const averages = [];\n  Object.values(orders).forEach(order => {\n    if (order.count > 1) {\n      const firstDate = new Date(order.first_created);\n      const lastDate = new Date(order.last_created);\n      const diffTime = Math.abs(lastDate - firstDate);\n      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));\n      averages.push({\n        order_id: order.order_id,\n        avg_time: diffDays\n      });\n    }\n  });\n  const total = averages.reduce((acc, {avg_time}) => acc + avg_time, 0);\n  const overallAvg = total / averages.length;\n  return overallAvg ? overallAvg.toFixed(2) : 1.2;\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Dashboard-admin_utils.revenueChart",
               "name": "utils.revenueChart",
               "collectionId": "Dashboard-admin_utils",
@@ -90,6 +79,19 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "async () => {\n  const orderedProductsCount = await getOrderProductCount.run();\n  var dummyTags = [{\n    \"x\": \"AEP\",\n    \"y\": 11\n  }, {\n    \"x\": \"SHC\",\n    \"y\": 7\n  }, {\n    \"x\": \"AEP Only\",\n    \"y\": 9\n  }, {\n    \"x\": \"No SHC\",\n    \"y\": 6\n  }, {\n    \"x\": \"No Tags\",\n    \"y\": 3\n  }];\n  return dummyTags;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Dashboard-admin_utilUsers.dashboardMetrics",
+              "name": "utilUsers.dashboardMetrics",
+              "collectionId": "Dashboard-admin_utilUsers",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const users = await getUserProfiles.run();\n  const currentDate = new Date();\n  const allUsers = users.filter(o => o.user_type === 'participant').length;\n  console.log(allUsers);\n  const userInvited = users.filter(o => o.status === 'User Invited').length;\n  const usersVerified = users.filter(o => o.status === 'verified').length;\n  const activeUsers = users.filter(o => currentDate >= o.start_date).length;\n  return {\n    users,\n    allUsers,\n    userInvited,\n    usersVerified,\n    activeUsers,\n    currentDate\n  };\n}"
               ],
               "timeoutInMillisecond": 10000
             }

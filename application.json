@@ -59,6 +59,10 @@
     {
       "id": "zoom-class-management-trainer",
       "isDefault": false
+    },
+    {
+      "id": "Participant-details",
+      "isDefault": false
     }
   ],
   "viewMode": false,

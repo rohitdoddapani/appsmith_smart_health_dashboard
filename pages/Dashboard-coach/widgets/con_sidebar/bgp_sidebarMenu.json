@@ -2,6 +2,7 @@
     "boxShadow": "none",
     "widgetName": "bgp_sidebarMenu",
     "isCanvas": false,
+    "dynamicPropertyPathList": [{"key": "groupButtons.groupButton1.onClick"}],
     "displayName": "Button Group",
     "iconSVG": "/static/media/icon.d6773218cfb61dcfa5f460d43371e30d.svg",
     "searchTags": [

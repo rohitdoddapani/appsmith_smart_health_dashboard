@@ -9,7 +9,7 @@ export default {
 		const orders = await getOrders.run();
 		const returnsCount = await getReturnsCount.run();
 
-		const allOrders = orders.length
+		const allOrders = orders.length;
 		const fulfilledOrders = orders.filter(o => o.status === 'DELIVERED').length;
 		const unfulfilledOrders = orders.filter(o => o.status === 'UNFULFILLED').length;
 		const cancelledOrders = orders.filter(o => o.status === 'CANCELLED').length;

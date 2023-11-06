@@ -9,6 +9,11 @@ export default {
 		// const data = [ { date: "2023-09-30", start_time: "10:00 AM" },{ date: "2023-09-30", start_time: "9:00 AM" }, { date: "2023-09-29", start_time: "8:00 AM" }]
 		return this.customSort(filteredData);
 	},
+	isDST: (d) => {
+    let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
+    let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
+    return Math.max(jan, jul) !== d.getTimezoneOffset();    
+	},
 	addClass: () => {
 		var classData = appsmith.store.classData;
 		var date = zc_startdate.selectedDate.slice(0,10)
@@ -18,7 +23,13 @@ export default {
 		var classType = zc_classtype.selectedOptionValue;
 		var title = zc_title.text;
 		var shortDesc = zc_shortdesc.text;
+		var zoomLink = zc_zoomlink.text;
 		var endDate = zc_enddate.selectedDate.slice(0,10);
+		
+		// if(date=='' || start=='' || end==''||coachName==''||classType==''||title==''||shortDesc==''||zoomLink==''){
+			// showAlert('All fields are required','error');
+			// return;
+		// }
 
 		// Specify the local time zone
 		const localTimeZone = moment.tz.guess();
@@ -67,20 +78,88 @@ export default {
 			endTime: zc_slot_to.selectedOptionValue,
 			coachName: zc_coachname.selectedOptionValue,
 			classType: zc_classtype.selectedOptionValue,
+			zoomLink:zc_zoomlink.text,
 			endDate: zc_enddate.selectedDate
 		}
 		// const startDate = '2023-11-06T10:00:00Z';
 		// const endDate = '2023-11-27T11:00:00Z';
 		// const startTime = '1970-01-01T10:00:00Z';
 		// const endTime = '1970-01-01T11:00:00Z';
-
-		const recurringEvents = this.generateRecurringEvents(formattedUTCStartTime, formattedUTCEndDate, formattedUTCStartTime, formattedUTCEndTime);
-
-		console.log(recurringEvents);
-		storeValue('zoomclassdata',recurringEvents)
 		
-		storeValue('cacheData',cacheData);
-		},
+		//commented
+		// var events = []
+		// if(!is_recurring.isSwitchedOn){
+			// console.log("in no enddate");
+			// var eve = [{
+				// 'title': title,
+				// 'short_description': shortDesc,
+				// 'coach_name': coachName,
+				// 'class_type': classType,
+				// 'zoom_link': zoomLink,
+				// 'date': formattedUTCStartTime,
+				// 'start_time': formattedUTCStartTime,
+				// 'end_time': formattedUTCEndTime,
+				// 'start': start,
+				// 'end': end
+			// }];
+			// events = eve;
+			// console.log("events:",events);
+			// storeValue('zoomclassdata',eve);
+			// // return;
+		// }
+		// else{
+			// console.log("in enddate");
+			// const recurringEvents = this.generateRecurringEvents(formattedUTCStartTime, formattedUTCEndDate, formattedUTCStartTime, formattedUTCEndTime);
+// 
+			// recurringEvents.forEach((event) => {
+				// // console.log(event);
+				// event.title = title;
+				// event.short_description = shortDesc;
+				// event.coach_name = coachName;
+				// event.class_type = classType;
+				// event.zoom_link = zoomLink;
+				// event.start = start;
+				// event.end = end;
+			// });
+// 
+			// console.log(recurringEvents);
+			// storeValue('zoomclassdata',recurringEvents);
+			// events = recurringEvents;
+		// }
+		// console.log( "events outside:",events);
+		// var event_structure=[];
+		// events.map(async (event) => {
+			// event_structure = {
+				// "coach_name": event.coach_name,
+				// "title": event.title,
+				// "start_time": event.start_time,
+				// "end_time": event.end_time,
+				// "zoom_link": event.zoom_link,
+				// "short_description": event.short_description,
+				// "date": event.date,
+				// "class_type": event.class_type,
+				// "start": event.start,
+				// "end": event.end
+			// }
+			// // storeValue('final_slot',event_structure)
+			// await post_zoom_class.run(event_structure)
+				// .then(data => {
+				// console.log("success "+ data);
+				// closeModal('confirm_add_class');
+				// resetWidget('zoom_class_form');
+				// showAlert('Zoom class created successfully', 'success');
+				// storeValue('zoomclassdata',[]);
+				// storeValue('cacheData',{});
+				// storeValue('tab','ViewClass');
+				// closeModal('')
+				// // coach_schedule.run();
+				// this.zoomClassManagementData();
+			// })
+		// })
+		// 
+		// 
+		// storeValue('cacheData',cacheData);
+	},
 	generateRecurringEvents: (startDate, endDate, startTime, endTime) => {
 		const events = [];
 		const startTimeObj = new Date(startTime);
@@ -88,6 +167,7 @@ export default {
 
 		let currentDate = new Date(startDate);
 		const endDateObj = new Date(endDate);
+		let i=1;
 
 		while (currentDate <= endDateObj) {
 			const formattedStartDate = currentDate.toISOString();
@@ -95,7 +175,8 @@ export default {
 			const formattedEndTime = endTimeObj.toISOString();
 
 			events.push({
-				start_date: formattedStartDate,
+				key: i++,
+				date: formattedStartDate,
 				start_time: formattedStartTime,
 				end_time: formattedEndTime,
 			});
@@ -268,7 +349,8 @@ export default {
 		// appsmith.store.slotData=[];
 		// appsmith.store.stData=[];
 		storeValue('stData',[]);
-		storeValue('slotData',[])
+		storeValue('slotData',[]);
+		storeValue('zoomclassdata',[]);
 	},
 	scheduleData: async () => {
 		var filteredData = [];

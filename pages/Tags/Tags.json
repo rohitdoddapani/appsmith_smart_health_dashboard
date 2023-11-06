@@ -28,19 +28,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Tags_utils.getTags",
-              "name": "utils.getTags",
-              "collectionId": "Tags_utils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  const tags = await getTags.run();\n  return tags.map(p => {\n    return {\n      id: p.id,\n      name: p.name,\n      'start week': p.start_week ? p.start_week : 'not_specified',\n      'end week': p.end_week ? p.end_week : 'not_specified'\n    };\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
               "id": "Tags_utils.checkLogin",
               "name": "utils.checkLogin",
               "collectionId": "Tags_utils",
@@ -48,6 +35,17 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "async () => {\n  await getTags.run().then(data => {\n    storeValue('returedtags', data);\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Tags_utils.getTags",
+              "name": "utils.getTags",
+              "collectionId": "Tags_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const tags = await getTags.run();\n  return tags.map(p => {\n    return {\n      id: p.id,\n      name: p.name,\n      'start week': p.start_week ? p.start_week : 'not_specified',\n      'end week': p.end_week ? p.end_week : 'not_specified'\n    };\n  });\n}"
               ],
               "timeoutInMillisecond": 10000
             }

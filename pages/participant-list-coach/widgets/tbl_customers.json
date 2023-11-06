@@ -1,5 +1,6 @@
 {
     "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+    "onSort": "{{}}",
     "isVisibleDownload": true,
     "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
     "topRow": 15,
@@ -67,7 +68,7 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1690493029797,
+    "columnUpdatedAt": 1698940634844,
     "originalBottomRow": 110,
     "primaryColumnId": "CustomerID",
     "defaultSelectedRowIndices": [0],
@@ -92,8 +93,9 @@
         "Tags"
     ],
     "dynamicPropertyPathList": [
-        {"key": "onRowSelected"},
-        {"key": "tableData"}
+        {"key": "tableData"},
+        {"key": "onSort"},
+        {"key": "onRowSelected"}
     ],
     "compactMode": "TALL",
     "displayName": "Table",
@@ -598,7 +600,7 @@
             "verticalAlignment": "CENTER"
         }
     },
-    "onRowSelected": "{{showModal('mdl_customerDetails')\nutils.getCustomerOrders(tbl_customers.selectedRow.UserID)\n}}",
+    "onRowSelected": "{{navigateTo('Participant-details', tbl_customers.selectedRow, 'SAME_WINDOW');}}",
     "key": "361c7eqfhn",
     "canFreezeColumn": false,
     "isDeprecated": false,
