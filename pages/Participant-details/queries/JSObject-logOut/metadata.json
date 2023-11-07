@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-11-06T06:39:03Z"
+    "createdAt": "2023-11-07T21:38:36Z"
   },
   "id": "Participant-details_JSObject.logOut",
   "deleted": false,
-  "gitSyncId": "646d2b3a65acc62c448ffe7d_65488a070c7a7a2ce606f9dd"
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_654aae5c5d861a1792ee7416"
 }

@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getDataFromQuery",
-    "fullyQualifiedName": "JSObject.getDataFromQuery",
+    "name": "isObjectEmpty",
+    "fullyQualifiedName": "JSObject.isObjectEmpty",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,8 +13,8 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Participant-details",
-    "collectionId": "Participant-details_JSObject",
+    "pageId": "participant-moni-dashboard",
+    "collectionId": "participant-moni-dashboard_JSObject",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -22,7 +22,7 @@
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {
-          "name": "data"
+          "name": "obj"
         }
       ]
     },
@@ -39,9 +39,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-11-07T21:38:36Z"
+    "createdAt": "2023-11-06T07:09:46Z"
   },
-  "id": "Participant-details_JSObject.getDataFromQuery",
+  "id": "participant-moni-dashboard_JSObject.isObjectEmpty",
   "deleted": false,
-  "gitSyncId": "646d2b3a65acc62c448ffe7d_654aae5c5d861a1792ee7417"
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_6548913a6d69fe5536ce6c63"
 }

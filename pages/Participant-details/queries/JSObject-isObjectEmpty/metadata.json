@@ -38,9 +38,10 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-11-07T21:38:36Z"
   },
   "id": "Participant-details_JSObject.isObjectEmpty",
   "deleted": false,
-  "gitSyncId": "646d2b3a65acc62c448ffe7d_6548913a6d69fe5536ce6c63"
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_654aae5c5d861a1792ee741a"
 }

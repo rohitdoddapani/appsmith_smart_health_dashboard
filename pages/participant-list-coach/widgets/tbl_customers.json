@@ -600,7 +600,7 @@
             "verticalAlignment": "CENTER"
         }
     },
-    "onRowSelected": "{{navigateTo('Participant-details', tbl_customers.selectedRow, 'SAME_WINDOW');}}",
+    "onRowSelected": "{{navigateTo('participant-moni-dashboard', tbl_customers.selectedRow, 'SAME_WINDOW');}}",
     "key": "361c7eqfhn",
     "canFreezeColumn": false,
     "isDeprecated": false,
