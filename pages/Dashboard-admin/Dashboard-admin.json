@@ -29,17 +29,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Dashboard-admin_JSObject.checkLogin",
-              "name": "JSObject.checkLogin",
-              "collectionId": "Dashboard-admin_JSObject",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  await is_admin.run().then(data => {\n    if (data == true) {\n      console.log(\"hi\");\n    } else {\n      navigateTo('Login', {});\n    }\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Dashboard-admin_getOrders",
               "name": "getOrders",
               "confirmBeforeExecute": false,
@@ -61,17 +50,6 @@
           ],
           [
             {
-              "id": "Dashboard-admin_utils.revenueChart",
-              "name": "utils.revenueChart",
-              "collectionId": "Dashboard-admin_utils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  const revenueByMonth = await getRevenueByMonth.run();\n  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];\n  return revenueByMonth.map(r => {\n    return {\n      x: months[parseInt(r.month.substring(5)) - 1] + ' ' + r.month.substring(2, 4),\n      y: r.total\n    };\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Dashboard-admin_utils.topOrderedProductsChart",
               "name": "utils.topOrderedProductsChart",
               "collectionId": "Dashboard-admin_utils",
@@ -85,13 +63,39 @@
           ],
           [
             {
+              "id": "Dashboard-admin_JSObject.checkLogin",
+              "name": "JSObject.checkLogin",
+              "collectionId": "Dashboard-admin_JSObject",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await is_admin.run().then(data => {\n    if (data == true) {\n      console.log(\"hi\");\n    } else {\n      navigateTo('Login', {});\n    }\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Dashboard-admin_utils.revenueChart",
+              "name": "utils.revenueChart",
+              "collectionId": "Dashboard-admin_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const revenueByMonth = await getRevenueByMonth.run();\n  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];\n  return revenueByMonth.map(r => {\n    return {\n      x: months[parseInt(r.month.substring(5)) - 1] + ' ' + r.month.substring(2, 4),\n      y: r.total\n    };\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
               "id": "Dashboard-admin_utilUsers.dashboardMetrics",
               "name": "utilUsers.dashboardMetrics",
               "collectionId": "Dashboard-admin_utilUsers",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const users = await getUserProfiles.run();\n  const currentDate = new Date();\n  const allUsers = users.filter(o => o.user_type === 'participant').length;\n  console.log(allUsers);\n  const userInvited = users.filter(o => o.status === 'User Invited').length;\n  const usersVerified = users.filter(o => o.status === 'verified').length;\n  const activeUsers = users.filter(o => currentDate >= o.start_date).length;\n  return {\n    users,\n    allUsers,\n    userInvited,\n    usersVerified,\n    activeUsers,\n    currentDate\n  };\n}"
+                "async () => {\n  const users = await getUserProfiles.run();\n  const currentDate = new Date();\n  const end_date = new Date();\n  end_date.setDate(currentDate.getDate() + 16 * 7);\n  const allUsers = users.filter(o => o.user_type === 'participant').length;\n  console.log(allUsers);\n  const userInvited = users.filter(o => o.status === 'User Invited').length;\n  const usersVerified = users.filter(o => o.status === 'verified').length;\n  const activeUsers = users.filter(o => currentDate >= o.start_date && currentDate < end_date).length;\n  return {\n    users,\n    allUsers,\n    userInvited,\n    usersVerified,\n    activeUsers,\n    currentDate,\n    end_date\n  };\n}"
               ],
               "timeoutInMillisecond": 10000
             }
