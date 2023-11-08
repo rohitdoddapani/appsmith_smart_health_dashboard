@@ -19,7 +19,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 12.01953125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 0,
+    "leftColumn": 27,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -30,8 +30,8 @@
     "text": "Tags",
     "key": "do8qxxakav",
     "isDeprecated": false,
-    "rightColumn": 13,
-    "textAlign": "LEFT",
+    "rightColumn": 31,
+    "textAlign": "RIGHT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "he3z0y7z8g",
     "minWidth": 450,
@@ -48,11 +48,11 @@
     "isLoading": false,
     "mobileTopRow": 16,
     "responsiveBehavior": "fill",
-    "originalTopRow": 17,
+    "originalTopRow": 16,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 7,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 21,
+    "originalBottomRow": 20,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }

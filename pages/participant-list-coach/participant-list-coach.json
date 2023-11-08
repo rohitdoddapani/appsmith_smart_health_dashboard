@@ -35,7 +35,9 @@
               "pluginType": "JS",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
-            },
+            }
+          ],
+          [
             {
               "id": "participant-list-coach_utils.getUsers",
               "name": "utils.getUsers",

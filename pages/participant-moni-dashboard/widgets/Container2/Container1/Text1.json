@@ -20,7 +20,7 @@
     "fontFamily": "Nunito Sans",
     "parentColumnSpace": 12.01953125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 0,
+    "leftColumn": 22,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "borderRadius"}
@@ -30,8 +30,8 @@
     "text": "Participant Id  ",
     "key": "lqwdi5b6uc",
     "isDeprecated": false,
-    "rightColumn": 13,
-    "textAlign": "LEFT",
+    "rightColumn": 31,
+    "textAlign": "RIGHT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "dsxtt8x15r",
     "minWidth": 450,

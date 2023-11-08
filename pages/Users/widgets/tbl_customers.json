@@ -67,7 +67,7 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1690493029797,
+    "columnUpdatedAt": 1699464156257,
     "originalBottomRow": 110,
     "primaryColumnId": "CustomerID",
     "defaultSelectedRowIndices": [0],
@@ -109,6 +109,7 @@
         "task": 245,
         "Username": 332.9375,
         "Dob": 79,
+        "UserID": 216,
         "Total": 96,
         "ShippingAddress": 243,
         "DeliveryFee": 128,
@@ -450,7 +451,7 @@
             "verticalAlignment": "CENTER"
         },
         "UserID": {
-            "computedValue": "{{tbl_customers.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"UserID\"]))}}",
+            "computedValue": "{{tbl_customers.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Intervention_no\"]))}}",
             "isEditable": false,
             "alias": "UserID",
             "enableSort": true,
@@ -466,14 +467,14 @@
             "index": 0,
             "isDiscardVisible": true,
             "isVisible": true,
-            "label": "UserID",
+            "label": "Intervention Number",
             "fontStyle": "",
             "columnType": "text",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
             "width": 150,
             "enableFilter": true,
-            "sticky": "",
+            "sticky": "left",
             "originalId": "UserID",
             "verticalAlignment": "CENTER"
         },

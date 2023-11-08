@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 68,
-    "bottomRow": 108,
+    "topRow": 72,
+    "bottomRow": 112,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -99,11 +99,11 @@
     "mobileTopRow": 1,
     "responsiveBehavior": "fill",
     "yAxisName": "Login Attempts",
-    "originalTopRow": 68,
+    "originalTopRow": 72,
     "chartName": "Login Attempts",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
     "xAxisName": "Week(s)",
-    "originalBottomRow": 108,
+    "originalBottomRow": 112,
     "chartType": "LINE_CHART"
 }
