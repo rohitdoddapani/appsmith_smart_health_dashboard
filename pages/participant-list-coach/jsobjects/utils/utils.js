@@ -1,13 +1,69 @@
 export default {
-	
+
 	idConverter: (num) => {
 		let str = num.toString();
 		let leadingZeros = "00000".substring(0, 5 - str.length);
 		return 'C' + leadingZeros + str;
 	},
+	getDateToday : () =>{
+		var today = new Date();
+		var dd = new Date().getDate();
+		var mm = new Date().getMonth() + 1; // January is 0 so we need to add 1
+		var yyyy = new Date().getFullYear();
+		if (dd < 10) {
+			dd = "0" + dd;
+		}
+		if (mm < 10) {
+			mm = "0" + mm;
+		}
+		today = yyyy + "-" +mm + "-" + dd ;
+		return today
+	},
+
+	next16thDate: () =>{
+		var today = new Date();
+		var next16th = new Date();
+		next16th.setDate(today.getDate() + 16);
+		var dd16 = next16th.getDate();
+		var mm16 = next16th.getMonth() + 1; // January is 0 so we need to add 1
+		var yyyy16 = next16th.getFullYear();
+		if (dd16 < 10) {
+			dd16 = "0" + dd16;
+		}
+		if (mm16 < 10) {
+			mm16 = "0" + mm16;
+		}
+		let next16 = yyyy16 + "-" + mm16 + "-" + dd16;
+		return next16
+	},
 	getUsers: async () => {
+		var today = new Date();
+		var dd = new Date().getDate();
+		var mm = new Date().getMonth() + 1; // January is 0 so we need to add 1
+		var yyyy = new Date().getFullYear();
+		if (dd < 10) {
+			dd = "0" + dd;
+		}
+		if (mm < 10) {
+			mm = "0" + mm;
+		}
+		var today_str = yyyy + "-" +mm + "-" + dd ;
+		var nowDate = new Date();
+		var next16th = new Date();
+		next16th.setDate(nowDate.getDate() + 16);
+		var dd16 = next16th.getDate();
+		var mm16 = next16th.getMonth() + 1; // January is 0 so we need to add 1
+		var yyyy16 = next16th.getFullYear();
+		if (dd16 < 10) {
+			dd16 = "0" + dd16;
+		}
+		if (mm16 < 10) {
+			mm16 = "0" + mm16;
+		}
+		let next16 = yyyy16 + "-" + mm16 + "-" + dd16;
+
 		const users = await getUserProfiles.run();
-		return users.map(u => {
+		let newUsers = users.map(u => {
 			return {
 				UserID: u.id,
 				Firstname:u.first_name,
@@ -27,6 +83,9 @@ export default {
 				Tags: u.tags
 			}
 		})
+		let filteredUsers = newUsers.filter((o) =>  o.UserType === 'participant' &&  o.Status === 'verified' && today_str >= o.StartTime && today_str < next16);
+		return filteredUsers
+
 	},
 	getCustomers: async () => {
 		const customers = await getCustomers.run();
@@ -56,7 +115,7 @@ export default {
 				Status: o.label
 			}
 		})
-		
+
 		return data;
 	},
 
@@ -72,22 +131,22 @@ export default {
 		}
 		return 'RGB(255, 165, 0)'
 	},
-	
+
 	addCustomer: async () => {
 		const person = await createPerson.run()
-		
+
 		await createAccount.run({
 			personId: person[0].id
 		})
-		
+
 		await createLocation.run({
 			personId: person[0].id
 		})
-		
+
 		closeModal('mdl_addCustomer');
-		
+
 		await this.getCustomers();
-		
+
 		showAlert('Customer created!', 'success');
 	}
 }

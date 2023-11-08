@@ -25,11 +25,11 @@
         {"key": "primaryColumns.Status.computedValue"},
         {"key": "primaryColumns.Intervention_no.computedValue"},
         {"key": "primaryColumns.Tags.computedValue"},
-        {"key": "tableData"},
         {"key": "primaryColumns.UserID.computedValue"},
         {"key": "primaryColumns.Firstname.computedValue"},
         {"key": "primaryColumns.Lastname.computedValue"},
-        {"key": "primaryColumns.StartTime.computedValue"}
+        {"key": "primaryColumns.StartTime.computedValue"},
+        {"key": "tableData"}
     ],
     "leftColumn": 14,
     "delimiter": ",",
@@ -68,7 +68,7 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1698940634844,
+    "columnUpdatedAt": 1699453504200,
     "originalBottomRow": 110,
     "primaryColumnId": "CustomerID",
     "defaultSelectedRowIndices": [0],
@@ -609,7 +609,7 @@
     "widgetId": "n0w1sgo3rz",
     "allowAddNewRow": false,
     "enableServerSideFiltering": false,
-    "tableData": "{{utils.getUsers.data.filter((user) => {\n\tif(user.UserType){\n\t\treturn user.UserType.toLowerCase() === 'participant'\n\t}\n\t\n} )}}",
+    "tableData": "{{utils.getUsers.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0",

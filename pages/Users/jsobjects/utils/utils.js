@@ -1,5 +1,5 @@
 export default {
-	
+
 	idConverter: (num) => {
 		let str = num.toString();
 		let leadingZeros = "00000".substring(0, 5 - str.length);
@@ -28,7 +28,7 @@ export default {
 			}
 		})
 	},
-	
+
 	getCustomers: async () => {
 		const customers = await getCustomers.run();
 
@@ -68,7 +68,7 @@ export default {
 				Status: o.label
 			}
 		})
-		
+
 		return data;
 	},
 
@@ -84,22 +84,22 @@ export default {
 		}
 		return 'RGB(255, 165, 0)'
 	},
-	
+
 	addCustomer: async () => {
 		const person = await createPerson.run()
-		
+
 		await createAccount.run({
 			personId: person[0].id
 		})
-		
+
 		await createLocation.run({
 			personId: person[0].id
 		})
-		
+
 		closeModal('mdl_addCustomer');
-		
+
 		await this.getCustomers();
-		
+
 		showAlert('Customer created!', 'success');
 	}
 }
