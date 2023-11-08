@@ -1,7 +1,7 @@
 {
     "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-    "mobileBottomRow": 32,
-    "widgetName": "Chart3",
+    "mobileBottomRow": 33,
+    "widgetName": "Chart2",
     "allowScroll": false,
     "displayName": "Chart",
     "iconSVG": "https://appcdn.appsmith.com/static/media/icon.8eea39845729f7f4bfadeecd3810a09d.svg",
@@ -10,20 +10,20 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 0,
-    "bottomRow": 32,
+    "topRow": 63,
+    "bottomRow": 103,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
-    "mobileRightColumn": 6,
+    "mobileRightColumn": 9,
     "chartData": {"fbhgx4ym9k": {
-        "data": "[\n  {\n    \"x\": \"Day1\",\n    \"y\": 600\n  },\n  {\n    \"x\": \"Day2\",\n    \"y\": 900\n  },\n  {\n    \"x\": \"Day3\",\n    \"y\": 1200\n  },\n  {\n    \"x\": \"Day4\",\n    \"y\": 1000\n  },\n  {\n    \"x\": \"Day5\",\n    \"y\": 600\n  },\n  {\n    \"x\": \"Day6\",\n    \"y\":700\n  },\n  {\n    \"x\": \"Day7\",\n    \"y\": 900\n  },\n  {\n    \"x\": \"Day8\",\n    \"y\": 1000\n  }\n]",
+        "data": "[\n  {\n    \"x\": \"Week1\",\n    \"y\": 3\n  },\n  {\n    \"x\": \"Week2\",\n    \"y\": 5\n  },\n  {\n    \"x\": \"Week3\",\n    \"y\": 2\n  },\n   {\n    \"x\": \"Week4\",\n    \"y\": 4\n  },\n   {\n    \"x\": \"Week5\",\n    \"y\": 7\n  },\n   {\n    \"x\": \"Week6\",\n    \"y\": 7\n  },\n   {\n    \"x\": \"Week7\",\n    \"y\": 5\n  },\n   {\n    \"x\": \"Week8\",\n    \"y\": 6\n  }\n]",
         "color": "#059669",
-        "seriesName": "By Day"
+        "seriesName": "By Week"
     }},
     "animateLoading": true,
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-    "parentColumnSpace": 14.5419921875,
+    "parentColumnSpace": 14.26171875,
     "dynamicTriggerPathList": [],
     "dynamicBindingPathList": [
         {"key": "customEChartConfig"},
@@ -32,7 +32,7 @@
         {"key": "accentColor"},
         {"key": "fontFamily"}
     ],
-    "leftColumn": 0,
+    "leftColumn": 1,
     "customFusionChartConfig": {
         "type": "column2d",
         "dataSource": {
@@ -85,23 +85,25 @@
     "showDataPointLabel": false,
     "key": "drjhhbq7nf",
     "isDeprecated": false,
-    "rightColumn": 64,
-    "widgetId": "3q4tr0es6q",
+    "rightColumn": 63,
+    "widgetId": "tlirm7f1lg",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
     "isVisible": true,
     "version": 1,
-    "parentId": "uho8zlpynu",
+    "parentId": "zoy4n9qt5r",
     "labelOrientation": "auto",
     "tags": ["Display"],
     "renderMode": "CANVAS",
     "isLoading": false,
-    "mobileTopRow": 0,
+    "mobileTopRow": 1,
     "responsiveBehavior": "fill",
-    "yAxisName": "Steps",
-    "chartName": "Fitbit Data",
+    "yAxisName": "Login Attempts",
+    "originalTopRow": 63,
+    "chartName": "Login Attempts",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
-    "xAxisName": "Day(s)",
+    "xAxisName": "Week(s)",
+    "originalBottomRow": 103,
     "chartType": "LINE_CHART"
 }

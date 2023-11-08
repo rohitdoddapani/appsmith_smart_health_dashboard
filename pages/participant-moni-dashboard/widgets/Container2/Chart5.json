@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 1,
-    "bottomRow": 33,
+    "topRow": 179,
+    "bottomRow": 211,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -32,7 +32,7 @@
         {"key": "accentColor"},
         {"key": "fontFamily"}
     ],
-    "leftColumn": 0,
+    "leftColumn": 1,
     "customFusionChartConfig": {
         "type": "column2d",
         "dataSource": {
@@ -91,7 +91,7 @@
     "minWidth": 450,
     "isVisible": true,
     "version": 1,
-    "parentId": "7ug32u0tly",
+    "parentId": "zoy4n9qt5r",
     "labelOrientation": "auto",
     "tags": ["Display"],
     "renderMode": "CANVAS",
@@ -99,9 +99,11 @@
     "mobileTopRow": 1,
     "responsiveBehavior": "fill",
     "yAxisName": "SHC Call Count",
+    "originalTopRow": 179,
     "chartName": "SHC Coaching Report",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
     "xAxisName": "Week(s)",
+    "originalBottomRow": 211,
     "chartType": "LINE_CHART"
 }

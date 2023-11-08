@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 0,
-    "bottomRow": 33,
+    "topRow": 25,
+    "bottomRow": 61,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -32,7 +32,7 @@
         {"key": "accentColor"},
         {"key": "fontFamily"}
     ],
-    "leftColumn": 0,
+    "leftColumn": 1,
     "customFusionChartConfig": {
         "type": "column2d",
         "dataSource": {
@@ -85,7 +85,7 @@
     "showDataPointLabel": false,
     "key": "drjhhbq7nf",
     "isDeprecated": false,
-    "rightColumn": 64,
+    "rightColumn": 63,
     "widgetId": "5cw4g3my8s",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
@@ -99,9 +99,11 @@
     "mobileTopRow": 1,
     "responsiveBehavior": "fill",
     "yAxisName": "Time Spent",
+    "originalTopRow": 25,
     "chartName": "Login Analytics",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 4,
     "xAxisName": "Week(s)",
+    "originalBottomRow": 61,
     "chartType": "LINE_CHART"
 }
