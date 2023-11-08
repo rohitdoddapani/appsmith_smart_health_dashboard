@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 106,
-    "bottomRow": 141,
+    "topRow": 112,
+    "bottomRow": 147,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -99,11 +99,11 @@
     "mobileTopRow": 0,
     "responsiveBehavior": "fill",
     "yAxisName": "Steps",
-    "originalTopRow": 106,
+    "originalTopRow": 112,
     "chartName": "Fitbit Data",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
     "xAxisName": "Day(s)",
-    "originalBottomRow": 141,
+    "originalBottomRow": 147,
     "chartType": "LINE_CHART"
 }

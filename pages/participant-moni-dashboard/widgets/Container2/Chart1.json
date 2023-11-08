@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 25,
-    "bottomRow": 61,
+    "topRow": 28,
+    "bottomRow": 64,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -99,11 +99,11 @@
     "mobileTopRow": 1,
     "responsiveBehavior": "fill",
     "yAxisName": "Time Spent",
-    "originalTopRow": 25,
+    "originalTopRow": 28,
     "chartName": "Login Analytics",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 4,
     "xAxisName": "Week(s)",
-    "originalBottomRow": 61,
+    "originalBottomRow": 64,
     "chartType": "LINE_CHART"
 }

@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 144,
-    "bottomRow": 176,
+    "topRow": 151,
+    "bottomRow": 183,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -60,11 +60,11 @@
     "mobileTopRow": 0,
     "responsiveBehavior": "fill",
     "yAxisName": "Count",
-    "originalTopRow": 144,
+    "originalTopRow": 151,
     "chartName": "Video Analytics(By Week)",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
     "xAxisName": "Week(s)",
-    "originalBottomRow": 176,
+    "originalBottomRow": 183,
     "chartType": "COLUMN_CHART"
 }
