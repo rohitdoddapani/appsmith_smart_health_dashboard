@@ -39,7 +39,7 @@
     "dynamicTriggerPathList": [],
     "labelPosition": "Top",
     "key": "bibbaokb6e",
-    "labelTextSize": "0.875rem",
+    "labelTextSize": "1rem",
     "defaultDate": "{{moment()}}",
     "isDeprecated": false,
     "rightColumn": 57,

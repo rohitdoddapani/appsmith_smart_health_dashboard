@@ -6,7 +6,7 @@ export default {
 	},
 	createUser: async () => {
 
-		
+
 		if(!nu_addEmail.text){
 			showAlert('Email is required!', 'error');
 			return;
@@ -39,27 +39,32 @@ export default {
 			showAlert('Atleast One Tag is required!', 'error');
 			return;
 		}
-		
-		
+
+
 		var _intervention_no = parseInt(nu_intervention.text);
 		var _tags = nu_tags.selectedOptionValues.toString();
+		console.log(nu_funtlevel.selectedOptionValue, 'nu_funtlevelselectedOptionValue')
 		const jsonUserData = {
 			"email": nu_addEmail.text,
 			"data": { 
 				"user_type": nu_userType.selectedOptionValue,
 				"first_name": nu_addFirstName.text ,
 				"last_name":nu_addLastName.text,
-				"gender":nu_gender.selectedOptionValue,
+				// "gender":nu_gender.selectedOptionValue,
 				"intervention_no":_intervention_no,
+				"wave":nu_wave.text,
+				"functional_level":nu_funtlevel.selectedOptionValue,
 				"start_date": nu_startTime.formattedDate,
 				"phone":nu_addPhone.value,
 				"status":"User Invited",
 				"tags":_tags }
+			
 		}
 
 		// appsmith.store.jsonUserData = jsonUserData;
+		console.log(jsonUserData, 'jsonUserDatajsonUserData')
 		storeValue("jsonUserData", jsonUserData);
-		// console.log(appsmith.store.jsonUserData);
+		console.log(appsmith.store.jsonUserData);
 		await invite_user.run().then(data=>{
 			console.log(data.error? 'hi':'bye');
 			if(data.error){
@@ -75,9 +80,12 @@ export default {
 				resetWidget('nu_gender')
 				resetWidget('nu_userType')
 				resetWidget('nu_startTime')
+				resetWidget('nu_wave')
+				resetWidget('nu_funtlevel')
 				resetWidget('nu_tags')
 				resetWidget('nu_intervention')
 				utils.getUsers();
+				console.log(jsonUserData)
 				closeModal('mdl_addCustomer');
 			}
 		}).catch(err=>{
@@ -91,17 +99,20 @@ export default {
 	updateUser: async () => {
 		var _intervention_no = parseInt(exs_intervention.text);
 		var _tags = exs_tags.selectedOptionValues.toString();
+		var _funclevels=exs_functlevel.selectedOptionValue.toString();
 
 		const jsonUserUpdateData = {
 			"userId": exs_userId.text,
 			"user_type": exs_usertype.selectedOptionValue,
 			"first_name": exs_firstname.text ,
 			"last_name":exs_lastname.text,
-			"gender":exs_gender.selectedOptionValue,
+			// "gender":exs_gender.selectedOptionValue,
 			"intervention_no":_intervention_no,
 			"start_date":exs_startTime.text,
 			"phone":exs_phone.value,
 			"tags":_tags,
+			"wave":exs_wave.text,
+			"functional_level":_funclevels,
 			"flag":"update-user"
 		}
 		storeValue("jsonUserUpdateData", jsonUserUpdateData);
@@ -120,3 +131,4 @@ export default {
 		})
 	}
 }
+

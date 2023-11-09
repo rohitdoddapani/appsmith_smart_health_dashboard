@@ -29,17 +29,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Users_auth.checkLogin",
-              "name": "auth.checkLogin",
-              "collectionId": "Users_auth",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  await getUserProfiles.run().then(data => {\n    storeValue('returedTodos', data);\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Users_utils.getTags",
               "name": "utils.getTags",
               "collectionId": "Users_utils",
@@ -57,7 +46,20 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const users = await getUserProfiles.run();\n  return users.map(u => {\n    return {\n      UserID: u.id,\n      Firstname: u.first_name,\n      Lastname: u.last_name,\n      Name: u.first_name + ' ' + u.last_name,\n      Phone: u.phone,\n      Email: u.email,\n      Address: u.address,\n      Nickname: u.nickname,\n      Profile: u.image_id,\n      UserType: u.user_type,\n      Gender: u.gender,\n      StartTime: u.start_date,\n      Dob: u.dob,\n      Status: u.status,\n      Intervention_no: u.intervention_no,\n      Tags: u.tags\n    };\n  });\n}"
+                "async () => {\n  const users = await getUserProfiles.run();\n  return users.map(u => {\n    return {\n      Firstname: u.first_name,\n      Lastname: u.last_name,\n      Phone: u.phone,\n      Email: u.email,\n      UserType: u.user_type,\n      StartTime: u.start_date,\n      Wave: u.wave,\n      FunctionalLevel: u.functional_level,\n      Status: u.status,\n      Intervention_no: u.intervention_no,\n      Tags: u.tags\n    };\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Users_auth.checkLogin",
+              "name": "auth.checkLogin",
+              "collectionId": "Users_auth",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await getUserProfiles.run().then(data => {\n    storeValue('returedTodos', data);\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
               ],
               "timeoutInMillisecond": 10000
             }

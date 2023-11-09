@@ -19,7 +19,7 @@
     "fontFamily": "Inter",
     "parentColumnSpace": 13.701171875,
     "dynamicTriggerPathList": [],
-    "leftColumn": 46,
+    "leftColumn": 47,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "borderRadius"}
@@ -29,7 +29,7 @@
     "text": "Active Users",
     "key": "lqwdi5b6uc",
     "isDeprecated": false,
-    "rightColumn": 58,
+    "rightColumn": 57,
     "textAlign": "CENTER",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "qf5efiaso6",
