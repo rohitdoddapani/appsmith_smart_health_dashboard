@@ -62,7 +62,7 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1699517749254,
+    "columnUpdatedAt": 1699542483809,
     "originalBottomRow": 110,
     "primaryColumnId": "CustomerID",
     "defaultSelectedRowIndices": [0],
@@ -83,7 +83,8 @@
     ],
     "dynamicPropertyPathList": [
         {"key": "onRowSelected"},
-        {"key": "tableData"}
+        {"key": "tableData"},
+        {"key": "isVisibleSearch"}
     ],
     "compactMode": "TALL",
     "displayName": "Table",
@@ -455,7 +456,7 @@
     "serverSidePaginationEnabled": false,
     "renderMode": "CANVAS",
     "horizontalAlignment": "CENTER",
-    "isVisibleSearch": true,
+    "isVisibleSearch": "true",
     "originalTopRow": 15,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"
