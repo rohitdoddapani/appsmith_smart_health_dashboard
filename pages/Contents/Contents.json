@@ -50,17 +50,6 @@
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Contents_utils.getContents",
-              "name": "utils.getContents",
-              "collectionId": "Contents_utils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  const contents = await getContents.run();\n  let filteredContents = contents;\n  if (sel_status.selectedOptionValue) {\n    filteredContents = filteredContents.filter(k => k.status === sel_status.selectedOptionValue);\n  }\n  return filteredContents.map(o => {\n    return {\n      id: o.id,\n      title: o.title,\n      description: o.description,\n      short_description: o.short_description,\n      content_type: o.content_type,\n      content: o.content,\n      week_no: o.week_no,\n      image_id: o.image_id,\n      end_week: o.end_week,\n      tags: o.tags,\n      status: o.status\n    };\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Contents_utils.init",
               "name": "utils.init",
               "collectionId": "Contents_utils",
@@ -68,6 +57,19 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "async () => {\n  const shippingDate = dat_shippingDate.formattedDate || new Date().toISOString();\n  storeValue('defaultTab', 'Sales Order');\n  storeValue('carrier', {\n    id: 1,\n    name: 'FedEX',\n    shippingRate: 2.5,\n    shippingDate: shippingDate,\n    Eta: new Date(new Date(shippingDate).getTime() + 4 * 24 * 60 * 60 * 1000).toDateString()\n  });\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Contents_utils.getContents",
+              "name": "utils.getContents",
+              "collectionId": "Contents_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const contents = await getContents.run();\n  let filteredContents = contents;\n  if (sel_status.selectedOptionValue) {\n    filteredContents = filteredContents.filter(k => k.status === sel_status.selectedOptionValue);\n  }\n  return filteredContents.map(o => {\n    return {\n      id: o.id,\n      title: o.title,\n      description: o.description,\n      short_description: o.short_description,\n      content_type: o.content_type,\n      content: o.content,\n      week_no: o.week_no,\n      image_id: o.image_id,\n      end_week: o.end_week,\n      tags: o.tags,\n      status: o.status\n    };\n  });\n}"
               ],
               "timeoutInMillisecond": 10000
             }

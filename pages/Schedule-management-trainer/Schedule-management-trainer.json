@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1200,
+          "bottomRow": 1090,
           "containerStyle": "none",
           "snapRows": 124,
           "parentRowSpace": 1,
@@ -28,17 +28,6 @@
         },
         "layoutOnLoadActions": [
           [
-            {
-              "id": "Schedule-management-trainer_JSObject.checkLogin",
-              "name": "JSObject.checkLogin",
-              "collectionId": "Schedule-management-trainer_JSObject",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  await is_trainer.run().then(data => {\n    if (data == true) {\n      console.log(\"in true\");\n    } else {\n      console.log(\"in false\");\n      navigateTo('Login', {});\n    }\n  }).catch(err => {\n    navigateTo('Login', {});\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
             {
               "id": "Schedule-management-trainer_getOrders",
               "name": "getOrders",

@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "checkLogin",
-    "fullyQualifiedName": "JSObject.checkLogin",
+    "name": "clickAddClass",
+    "fullyQualifiedName": "utils.clickAddClass",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,8 +13,8 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Schedule-management-trainer",
-    "collectionId": "Schedule-management-trainer_JSObject",
+    "pageId": "zoom-class-management-trainer",
+    "collectionId": "zoom-class-management-trainer_utils",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -36,7 +36,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Schedule-management-trainer_JSObject.checkLogin",
+  "id": "zoom-class-management-trainer_utils.clickAddClass",
   "deleted": false,
-  "gitSyncId": "646d2b3a65acc62c448ffe7d_654d0f82523796048b383ca2"
+  "gitSyncId": "646d2b3a65acc62c448ffe7d_654d0b0deea249205480f833"
 }

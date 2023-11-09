@@ -14,6 +14,23 @@ export default {
     let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
     return Math.max(jan, jul) !== d.getTimezoneOffset();    
 	},
+	clickAddClass: () => {
+		var date = zc_startdate.selectedDate.slice(0,10)
+		var start = zc_slot_from.selectedOptionValue;
+		var end = zc_slot_to.selectedOptionValue;
+		var coachName = zc_coachname.selectedOptionValue;
+		var classType = zc_classtype.selectedOptionValue;
+		var title = zc_title.text;
+		var shortDesc = zc_shortdesc.text;
+		var zoomLink = zc_zoomlink.text;
+		var endDate = zc_enddate.selectedDate.slice(0,10);
+		
+		if(date=='' || start=='' || end==''||coachName==''||classType==''||title==''||shortDesc==''||zoomLink==''){
+			showAlert('All fields are required','error');
+			return;
+		}
+		showModal('confirm_add_class');
+	},
 	addClass: () => {
 		var classData = appsmith.store.classData;
 		var date = zc_startdate.selectedDate.slice(0,10)
@@ -26,10 +43,10 @@ export default {
 		var zoomLink = zc_zoomlink.text;
 		var endDate = zc_enddate.selectedDate.slice(0,10);
 		
-		// if(date=='' || start=='' || end==''||coachName==''||classType==''||title==''||shortDesc==''||zoomLink==''){
-			// showAlert('All fields are required','error');
-			// return;
-		// }
+		if(date=='' || start=='' || end==''||coachName==''||classType==''||title==''||shortDesc==''||zoomLink==''){
+			showAlert('All fields are required','error');
+			return;
+		}
 
 		// Specify the local time zone
 		const localTimeZone = moment.tz.guess();
@@ -87,78 +104,77 @@ export default {
 		// const endTime = '1970-01-01T11:00:00Z';
 		
 		//commented
-		// var events = []
-		// if(!is_recurring.isSwitchedOn){
-			// console.log("in no enddate");
-			// var eve = [{
-				// 'title': title,
-				// 'short_description': shortDesc,
-				// 'coach_name': coachName,
-				// 'class_type': classType,
-				// 'zoom_link': zoomLink,
-				// 'date': formattedUTCStartTime,
-				// 'start_time': formattedUTCStartTime,
-				// 'end_time': formattedUTCEndTime,
-				// 'start': start,
-				// 'end': end
-			// }];
-			// events = eve;
-			// console.log("events:",events);
-			// storeValue('zoomclassdata',eve);
-			// // return;
-		// }
-		// else{
-			// console.log("in enddate");
-			// const recurringEvents = this.generateRecurringEvents(formattedUTCStartTime, formattedUTCEndDate, formattedUTCStartTime, formattedUTCEndTime);
-// 
-			// recurringEvents.forEach((event) => {
-				// // console.log(event);
-				// event.title = title;
-				// event.short_description = shortDesc;
-				// event.coach_name = coachName;
-				// event.class_type = classType;
-				// event.zoom_link = zoomLink;
-				// event.start = start;
-				// event.end = end;
-			// });
-// 
-			// console.log(recurringEvents);
-			// storeValue('zoomclassdata',recurringEvents);
-			// events = recurringEvents;
-		// }
-		// console.log( "events outside:",events);
-		// var event_structure=[];
-		// events.map(async (event) => {
-			// event_structure = {
-				// "coach_name": event.coach_name,
-				// "title": event.title,
-				// "start_time": event.start_time,
-				// "end_time": event.end_time,
-				// "zoom_link": event.zoom_link,
-				// "short_description": event.short_description,
-				// "date": event.date,
-				// "class_type": event.class_type,
-				// "start": event.start,
-				// "end": event.end
-			// }
-			// // storeValue('final_slot',event_structure)
-			// await post_zoom_class.run(event_structure)
-				// .then(data => {
-				// console.log("success "+ data);
-				// closeModal('confirm_add_class');
-				// resetWidget('zoom_class_form');
-				// showAlert('Zoom class created successfully', 'success');
-				// storeValue('zoomclassdata',[]);
-				// storeValue('cacheData',{});
-				// storeValue('tab','ViewClass');
-				// closeModal('')
-				// // coach_schedule.run();
-				// this.zoomClassManagementData();
-			// })
-		// })
-		// 
-		// 
-		// storeValue('cacheData',cacheData);
+		var events = []
+		if(!is_recurring.isSwitchedOn){
+			console.log("in no enddate");
+			var eve = [{
+				'title': title,
+				'short_description': shortDesc,
+				'coach_name': coachName,
+				'class_type': classType,
+				'zoom_link': zoomLink,
+				'date': formattedUTCStartTime,
+				'start_time': formattedUTCStartTime,
+				'end_time': formattedUTCEndTime,
+				'start': start,
+				'end': end
+			}];
+			events = eve;
+			console.log("events:",events);
+			storeValue('zoomclassdata',eve);
+			// return;
+		}
+		else{
+			console.log("in enddate");
+			const recurringEvents = this.generateRecurringEvents(formattedUTCStartTime, formattedUTCEndDate, formattedUTCStartTime, formattedUTCEndTime);
+
+			recurringEvents.forEach((event) => {
+				// console.log(event);
+				event.title = title;
+				event.short_description = shortDesc;
+				event.coach_name = coachName;
+				event.class_type = classType;
+				event.zoom_link = zoomLink;
+				event.start = start;
+				event.end = end;
+			});
+
+			console.log(recurringEvents);
+			storeValue('zoomclassdata',recurringEvents);
+			events = recurringEvents;
+		}
+		console.log( "events outside:",events);
+		var event_structure=[];
+		events.map(async (event) => {
+			event_structure = {
+				"coach_name": event.coach_name,
+				"title": event.title,
+				"start_time": event.start_time,
+				"end_time": event.end_time,
+				"zoom_link": event.zoom_link,
+				"short_description": event.short_description,
+				"date": event.date,
+				"class_type": event.class_type,
+				"start": event.start,
+				"end": event.end
+			}
+			// storeValue('final_slot',event_structure)
+			await post_zoom_class.run(event_structure)
+				.then(data => {
+				console.log("success "+ data);
+				closeModal('confirm_add_class');
+				resetWidget('zoom_class_form');
+				showAlert('Zoom class created successfully', 'success');
+				storeValue('zoomclassdata',[]);
+				storeValue('cacheData',{});
+				storeValue('tab','ViewClass');
+				// coach_schedule.run();
+				this.zoomClassManagementData();
+			})
+		})
+		
+		
+		storeValue('cacheData',cacheData);
 	},
 	generateRecurringEvents: (startDate, endDate, startTime, endTime) => {
 		const events = [];

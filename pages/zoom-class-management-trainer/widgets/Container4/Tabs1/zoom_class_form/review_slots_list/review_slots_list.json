@@ -7,7 +7,7 @@
     "pageSize": 6,
     "type": "LIST_WIDGET_V2",
     "itemSpacing": 8,
-    "topRowBeforeCollapse": 16,
+    "topRowBeforeCollapse": 58,
     "animateLoading": true,
     "dynamicBindingPathList": [
         {"key": "currentItemsView"},
@@ -59,7 +59,7 @@
     }],
     "itemBackgroundColor": "#FFFFFF",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-    "bottomRowBeforeCollapse": 53,
+    "bottomRowBeforeCollapse": 95,
     "isVisible": "{{appsmith.store.zoomclassdata.length ? false : false}}",
     "tags": [
         "Suggested",
@@ -69,7 +69,7 @@
     "isLoading": false,
     "mainCanvasId": "w6u23nk8ik",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "originalBottomRow": 53,
+    "originalBottomRow": 95,
     "additionalStaticProps": [
         "level",
         "levelData",
@@ -105,7 +105,7 @@
     "renderMode": "CANVAS",
     "mobileTopRow": 25,
     "responsiveBehavior": "fill",
-    "originalTopRow": 16,
+    "originalTopRow": 58,
     "mobileLeftColumn": 19,
     "selectedItemView": "{{{}}}"
 }

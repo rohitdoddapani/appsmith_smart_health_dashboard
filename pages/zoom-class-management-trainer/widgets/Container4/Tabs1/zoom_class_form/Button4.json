@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 42,
     "widgetName": "Button4",
-    "onClick": "{{showModal('confirm_add_class');}}",
+    "onClick": "{{utils.clickAddClass();}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "dynamicPropertyPathList": [{"key": "isVisible"}],
     "displayName": "Button",

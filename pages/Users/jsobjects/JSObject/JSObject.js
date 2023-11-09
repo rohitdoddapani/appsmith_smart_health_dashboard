@@ -58,13 +58,12 @@ export default {
 				"phone":nu_addPhone.value,
 				"status":"User Invited",
 				"tags":_tags }
-			
+
 		}
 
 		// appsmith.store.jsonUserData = jsonUserData;
-		console.log(jsonUserData, 'jsonUserDatajsonUserData')
 		storeValue("jsonUserData", jsonUserData);
-		console.log(appsmith.store.jsonUserData);
+		// console.log(appsmith.store.jsonUserData);
 		await invite_user.run().then(data=>{
 			console.log(data.error? 'hi':'bye');
 			if(data.error){
@@ -106,6 +105,7 @@ export default {
 			"user_type": exs_usertype.selectedOptionValue,
 			"first_name": exs_firstname.text ,
 			"last_name":exs_lastname.text,
+			"email":exs_email.text,
 			// "gender":exs_gender.selectedOptionValue,
 			"intervention_no":_intervention_no,
 			"start_date":exs_startTime.text,
@@ -115,13 +115,16 @@ export default {
 			"functional_level":_funclevels,
 			"flag":"update-user"
 		}
+		console.log(jsonUserUpdateData, 'jsonUserUpdateData')
 		storeValue("jsonUserUpdateData", jsonUserUpdateData);
-		console.log(appsmith.store.jsonUserUpdateData);
+		// console.log(appsmith.store.jsonUserUpdateData);
 		await update_user.run().then(data=>{
 			console.log(data.error? 'hi':'bye');
 			if(data.error){
+				console.log(data.error)
 				showAlert('user update failed!', 'error');
 			}else{
+				console.log(data,'data')
 				showAlert('user updated', 'success');
 				closeModal('mdl_customerDetails');
 			}

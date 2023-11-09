@@ -22,70 +22,6 @@ export default {
 	timeData: () => {
 		return [
 			{
-				"name": "12:00 AM",
-				"value": "12:00 AM"
-			},
-			{
-				"name": "12:30 AM",
-				"value": "12:30 AM"
-			},
-			{
-				"name": "1:00 AM",
-				"value": "1:00 AM"
-			},
-			{
-				"name": "1:30 AM",
-				"value": "1:30 AM"
-			},
-			{
-				"name": "2:00 AM",
-				"value": "2:00 AM"
-			},
-			{
-				"name": "2:30 AM",
-				"value": "2:30 AM"
-			},
-			{
-				"name": "3:00 AM",
-				"value": "3:00 AM"
-			},
-			{
-				"name": "3:30 AM",
-				"value": "3:30 AM"
-			},
-			{
-				"name": "4:00 AM",
-				"value": "4:00 AM"
-			},
-			{
-				"name": "4:30 AM",
-				"value": "4:30 AM"
-			},
-			{
-				"name": "5:00 AM",
-				"value": "5:00 AM"
-			},
-			{
-				"name": "5:30 AM",
-				"value": "5:30 AM"
-			},
-			{
-				"name": "6:00 AM",
-				"value": "6:00 AM"
-			},
-			{
-				"name": "6:30 AM",
-				"value": "6:30 AM"
-			},
-			{
-				"name": "7:00 AM",
-				"value": "7:00 AM"
-			},
-			{
-				"name": "7:30 AM",
-				"value": "7:30 AM"
-			},
-			{
 				"name": "8:00 AM",
 				"value": "8:00 AM"
 			},
@@ -168,50 +104,6 @@ export default {
 			{
 				"name": "6:00 PM",
 				"value": "6:00 PM"
-			},
-			{
-				"name": "6:30 PM",
-				"value": "6:30 PM"
-			},
-			{
-				"name": "7:00 PM",
-				"value": "7:00 PM"
-			},
-			{
-				"name": "7:30 PM",
-				"value": "7:30 PM"
-			},
-			{
-				"name": "8:00 PM",
-				"value": "8:00 PM"
-			},
-			{
-				"name": "8:30 PM",
-				"value": "8:30 PM"
-			},
-			{
-				"name": "9:00 PM",
-				"value": "9:00 PM"
-			},
-			{
-				"name": "9:30 PM",
-				"value": "9:30 PM"
-			},
-			{
-				"name": "10:00 PM",
-				"value": "10:00 PM"
-			},
-			{
-				"name": "10:30 PM",
-				"value": "10:30 PM"
-			},
-			{
-				"name": "11:00 PM",
-				"value": "11:00 PM"
-			},
-			{
-				"name": "11:30 PM",
-				"value": "11:30 PM"
 			}
 		]
 	}
